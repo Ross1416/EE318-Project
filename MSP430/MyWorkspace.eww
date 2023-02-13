@@ -3,5 +3,11 @@
     <project>
         <path>$WS_DIR$\LDR\LDR.ewp</path>
     </project>
+    <project>
+        <path>$WS_DIR$\LDR-multiple\LDR-multiple.ewp</path>
+    </project>
+    <project>
+        <path>$WS_DIR$\Servo\Servo.ewp</path>
+    </project>
     <batchBuild />
 </workspace>
