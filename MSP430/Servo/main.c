@@ -2,7 +2,11 @@
 #include <driverlib.h>
 
 volatile unsigned int period = 640;
-volatile unsigned int duty_cycle = 320; //50% duty cycle of 50 Hz signal?
+volatile unsigned int duty_cycle = 80; //50% duty cycle of 50 Hz signal?
+
+//volatile unsigned int period = 32000;
+//volatile unsigned int duty_cycle = 16000; //50% duty cycle of 50 Hz signal?
+
 
 void init_timer_LED_flashing(void)
 { 
@@ -20,7 +24,7 @@ void init_timer_LED_flashing(void)
   TA1CTL |= TASSEL_1; // ACLK clock
   TA1CTL |= ID_0; // divide by 0
   TA1CTL |= MC_1; // up mode - 01b = Up mode: Timer counts up to TAxCCR0
-  TA1CCTL0 |= OUTMOD_7;
+  TA1CCTL1 |= OUTMOD_7;
 }
 
 void init_timer_servo(void)
@@ -29,17 +33,17 @@ void init_timer_servo(void)
   P1SEL0 |= BIT7; // set timer to output
   
   // not necessary 
-  TA1CTL = TACLR; //clear timer
-  TA1R=0; // set initial counter value to just zero
+//  TA0CTL = TACLR; //clear timer
+//  TA0R=0; // set initial counter value to just zero
 
   // necessary
-  TA1CCR0 = period; 
-  TA1CCR1 = duty_cycle;
+  TA0CCR0 = period; 
+  TA0CCR1 = duty_cycle;
   
-  TA1CTL |= TASSEL_1; // ACLK clock
-  TA1CTL |= ID_0; // divide by 0
-  TA1CTL |= MC_1; // up mode - 01b = Up mode: Timer counts up to TAxCCR0
-  TA1CCTL0 |= OUTMOD_7;
+  TA0CTL |= TASSEL_1; // ACLK clock
+  TA0CTL |= ID_0; // divide by 0
+  TA0CTL |= MC_1; // up mode - 01b = Up mode: Timer counts up to TAxCCR0
+  TA0CCTL1 |= OUTMOD_7;
 }
 
 
@@ -58,6 +62,6 @@ int main(void)
     while(1)
     {
         
-        __delay_cycles(2000);             // Delay for 100000*(1/MCLK)=0.1s
+//        __delay_cycles(2000);             // Delay for 100000*(1/MCLK)=0.1s
     }
 }

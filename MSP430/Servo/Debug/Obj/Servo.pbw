@@ -112736,7 +112736,7 @@
     "display": "void init_timer_LED_flashing(void)",
     "location": {
       "column": "6",
-      "line": "7",
+      "line": "11",
       "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
     },
     "name": "init_timer_LED_flashing",
@@ -112750,7 +112750,7 @@
     "display": "void init_timer_servo(void)",
     "location": {
       "column": "6",
-      "line": "26",
+      "line": "30",
       "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
     },
     "name": "init_timer_servo",
@@ -112764,7 +112764,7 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "46",
+      "line": "50",
       "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
     },
     "name": "main",
