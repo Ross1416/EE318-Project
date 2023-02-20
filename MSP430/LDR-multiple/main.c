@@ -1,8 +1,16 @@
 #include <msp430.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <driverlib.h>
 #include "hal_LCD.h"
 
-volatile unsigned int val = 0;
+volatile unsigned int val1 = 0;
+volatile unsigned int val2 = 0;
+int current_ADC=1;
+
+int buttonValue; 
+bool selected=0;
+
 
 #pragma vector=ADC_VECTOR
 __interrupt void ADC_ISR(void)
@@ -10,22 +18,33 @@ __interrupt void ADC_ISR(void)
   switch(ADCIV)
   {
     case ADCIV_ADCIFG:
-      val = ADCMEM0;
+      if (current_ADC == 1)
+      {
+        val1 = ADCMEM0;
+        
+        current_ADC = 0;
+      }
+      else if (current_ADC == 0)
+      {
+        val2 = ADCMEM0;
+        current_ADC = 1;
+      }
+      __bis_SR_register_on_exit(LPM0_bits); // Low power mode select? - not low power mode
       break;
   }
 }
-
 void init_ADC(void)
 {    
-  SYSCFG2 |= ADCPCTL0 | ADCPCTL1; // Enable A6;
+  SYSCFG2 |= ADCPCTL6 | ADCPCTL7; // Enable A0 & A1;
   
-  ADCCTL0 |= ADCON | ADCSHT_2; //Turn on ADC & setting sample and hold time as 16 ADCCLK cycles?
+  ADCCTL0 = 0;
+  ADCCTL0 |= ADCON | ADCSHT_2 | ADCMSC; //Turn on ADC & setting sample and hold time as 16 ADCCLK cycles?
   ADCCTL1 |= ADCSHP; // sets the source of the sampling signal (SAMPCON) to the sampling timer? - or sets it to pulse sampling mode?
   ADCCTL2 |= ADCRES; //Set 10 bit resolution 
   
-  ADCMCTL0 |= ADCINCH_1; // Setting reference and input channel select
+  ADCMCTL0 |= ADCINCH_7; // Setting reference and input channel select to A1
   
-  ADCCTL1 |= ADCCONSEQ_3;  //doesnt really seem to change anything - ADC conversion sequence mode select - 10b = Repeat-single-channel
+  ADCCTL1 |= ADCCONSEQ_3;  //ADC conversion sequence mode select - 10b = Repeat-sequence-of-channels
   
   ADCIFG &= ~0x01; // clear interrupt - why this bit?
   ADCIE |= ADCIE0; // Enable interrupt;
@@ -60,19 +79,40 @@ int main(void)
     init_ADC();
     __enable_interrupt();
     
+    GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P1, GPIO_PIN3);
+
+    
     ADCCTL0 |= ADCENC | ADCSC; // enable conversion and start conversion
 
     while(1)
     {
       ADCCTL0 |= ADCSC; // start conversion
+//      printf("LDR1: %u, LDR2: %u \n", val1, val2);
       
-      intToChar(valStr, val);
+      buttonValue = GPIO_getInputPinValue(GPIO_PORT_P1, GPIO_PIN3);
       
-      showChar(valStr[0],pos1);
-      showChar(valStr[1],pos2);
-      showChar(valStr[2],pos3);
-      showChar(valStr[3],pos4);
+      if (!buttonValue)
+        selected=!selected;
+        
+      if (!selected) 
+      {
+        intToChar(valStr, val1);
+        showChar('1',pos1);
+//        showChar('',pos2);
+      }else
+      {
+        showChar('2',pos1);
+//        showChar('',pos2);
+        intToChar(valStr, val2);
+      }
       
-        __delay_cycles(2000);             // Delay for 100000*(1/MCLK)=0.1s
+      
+      showChar(valStr[0],pos3);
+      showChar(valStr[1],pos4);
+      showChar(valStr[2],pos5);
+      showChar(valStr[3],pos6);
+      
+      __delay_cycles(50000);             // Delay for 100000*(1/MCLK)=0.1s
+      
     }
 }
