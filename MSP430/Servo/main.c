@@ -2,7 +2,7 @@
 #include <driverlib.h>
 
 volatile unsigned int period = 640;
-volatile unsigned int duty_cycle = 80; //50% duty cycle of 50 Hz signal?
+volatile unsigned int duty_cycle = 74; //50% duty cycle of 50 Hz signal?
 
 //volatile unsigned int period = 32000;
 //volatile unsigned int duty_cycle = 16000; //50% duty cycle of 50 Hz signal?

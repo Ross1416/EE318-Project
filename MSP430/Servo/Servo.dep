@@ -5,227 +5,128 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\mpy32.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\sysctl.xcl</file>
-            <file>$PROJ_DIR$\Debug\Obj\rtc.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\cs.r43</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\timer_b.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\adc.r43</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
-            <file>$PROJ_DIR$\Debug\Exe\LDR.d43</file>
-            <file>$PROJ_DIR$\Debug\Obj\adc.xcl</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\assert.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\tlv.xcl</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dl430xlsfn.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\rtc.xcl</file>
-            <file>$TOOLKIT_DIR$\inc\in430.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\tia.h</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\sysctl.r43</file>
             <file>$TOOLKIT_DIR$\inc\msp430fr2xx_4xxgeneric.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\pmm.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\gpio.r43</file>
             <file>$PROJ_DIR$\Debug\Exe\TemplateProject.d43</file>
+            <file>$PROJ_DIR$\Debug\Obj\cs.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\sysctl.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\tlv.xcl</file>
+            <file>$PROJ_DIR$\Debug\Exe\LDR.d43</file>
             <file>$TOOLKIT_DIR$\inc\msp430fr4133.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\eusci_a_uart.xcl</file>
-            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\eusci_b_spi.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+            <file>$TOOLKIT_DIR$\inc\in430.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio.r43</file>
             <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\ecomp.h</file>
-            <file>$PROJ_DIR$\Debug\Exe\LDR-multiple.d43</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sac.h</file>
-            <file>$TOOLKIT_DIR$\inc\msp430.h</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\sfr.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\pmm.xcl</file>
-            <file>$PROJ_DIR$\Debug\Obj\eusci_a_spi.xcl</file>
-            <file>$PROJ_DIR$\Debug\Obj\wdt_a.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\crc.xcl</file>
-            <file>$PROJ_DIR$\Debug\Obj\lcd_e.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\timer_a.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
-            <file>$PROJ_DIR$\Debug\Obj\hal_LCD.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\eusci_a_spi.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\hal_LCD.xcl</file>
-            <file>$PROJ_DIR$\Debug\Obj\eusci_b_i2c.r43</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\stdbool.h</file>
-            <file>$PROJ_DIR$\Debug\Exe\Servo.ulp</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\tlv.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\lcd_e.xcl</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\eusci_b_i2c.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\eusci_b_spi.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\tia.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\pmm.r43</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430xlsfn.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\eusci_a_uart.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\rtc.xcl</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\crc.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\cs.c</file>
             <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\cs.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_a_spi.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\driverlib.h</file>
             <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\inc\hw_memmap.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_a_spi.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_a_spi.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\framctl.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\crc.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\gpio.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h</file>
             <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_a_uart.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\adc.c</file>
             <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\framctl.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\gpio.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\lcd_e.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\lcd_e.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_a_uart.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\pmm.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\pmm.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\adc.h</file>
             <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.h</file>
             <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\adc.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\crc.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\cs.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\driverlib.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_a_uart.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\crc.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\adc.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_a_spi.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\framctl.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\framctl.r43</file>
-            <file>$PROJ_DIR$\Debug\Exe\Servo.d43</file>
-            <file>$PROJ_DIR$\Debug\Obj\timer_a.xcl</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\gpio.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\eusci_b_spi.xcl</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\wdt_a.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\framctl.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sfr.h</file>
-            <file>$PROJ_DIR$\hal_LCD.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\lcd_e.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sfr.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\timer_a.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\timer_a.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\tlv.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\lcd_e.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\pmm.h</file>
             <file>$PROJ_DIR$\hal_LCD.c</file>
+            <file>$TOOLKIT_DIR$\config\linker\lnk430fr4133.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_a.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\cs.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd_e.xcl</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\wdt_a.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sfr.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sysctl.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\tlv.c</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\tlv.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\eusci_a_uart.r43</file>
             <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sysctl.h</file>
             <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\rtc.h</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dl430xlsfn.r43</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\rtc.c</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\framctl.xcl</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\icc.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sysctl.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\wdt_a.h</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\pmm.c</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\gpio.h</file>
-            <file>$TOOLKIT_DIR$\config\linker\lnk430fr4133.xcl</file>
-            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\tlv.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\crc.r43</file>
-            <file>$PROJ_DIR$\Debug\Obj\sfr.xcl</file>
-            <file>$PROJ_DIR$\Debug\Obj\wdt_a.xcl</file>
-            <file>$PROJ_DIR$\Debug\Obj\gpio.xcl</file>
-            <file>$PROJ_DIR$\Debug\Obj\cs.xcl</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\eusci_a_uart.r43</file>
-            <file>$PROJ_DIR$\..\LDR-multiple\main.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sfr.c</file>
             <file>$PROJ_DIR$\Debug\Obj\Servo.pbd</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\timer_a.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\crc.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\wdt_a.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\sfr.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+            <file>$PROJ_DIR$\hal_LCD.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\icc.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\wdt_a.c</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\timer_a.h</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\rtc.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\hal_LCD.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\eusci_b_i2c.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\rtc.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\eusci_b_i2c.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\eusci_a_spi.r43</file>
+            <file>$PROJ_DIR$\Debug\Exe\Servo.d43</file>
+            <file>$PROJ_DIR$\Debug\Obj\eusci_b_spi.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc.r43</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\mpy32.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\pmm.xcl</file>
+            <file>$PROJ_DIR$\Debug\Exe\Servo.ulp</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\assert.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\wdt_a.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_a.r43</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sac.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\tlv.r43</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430xlsfn.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
+            <file>$PROJ_DIR$\Debug\Exe\LDR-multiple.d43</file>
+            <file>$PROJ_DIR$\Debug\Obj\eusci_a_spi.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\sfr.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\crc.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\framctl.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\framctl.r43</file>
+            <file>$PROJ_DIR$\Debug\Obj\hal_LCD.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd_e.r43</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdbool.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\sysctl.xcl</file>
+            <file>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\timer_b.h</file>
         </outputs>
         <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
+            <name>$PROJ_DIR$\Debug\Exe\TemplateProject.d43</name>
+            <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 69</file>
+                    <file> 46 82 65 2 79 59 76 11 100 9 102 7 15 77 97 3 90 92 89 93</file>
                 </tool>
-                <tool>
-                    <name>ULP430</name>
-                    <file> 45</file>
-                </tool>
-            </outputs>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\LDR.d43</name>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 96 5 98 3 41 104 43 26 68 20 40 37 12 19 2 32 17 38 47 35 87</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\TemplateProject.d43</name>
-            <inputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 96 5 98 3 41 104 43 26 68 20 37 12 19 2 32 17 38 47 35 87</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\LDR-multiple.d43</name>
-            <inputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 96 5 98 3 41 104 43 26 68 20 40 37 12 19 2 32 17 38 47 35 87</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 43</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 50</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 56 9</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 26</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 72</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 64 9</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\adc.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 5</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 8</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 65 9</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\crc.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 98</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 36</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 63 9</file>
+                    <file> 46 82 65 2 79 59 76 11 100 9 75 102 7 15 77 97 3 90 92 89 93</file>
                 </tool>
             </inputs>
         </file>
@@ -234,36 +135,17 @@
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 3</file>
+                    <file> 2</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 102</file>
+                    <file> 49</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 51 9</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_a_uart.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 104</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 23</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 54 9</file>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 23 88</file>
                 </tool>
             </inputs>
         </file>
@@ -272,17 +154,17 @@
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 41</file>
+                    <file> 79</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 34</file>
+                    <file> 96</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 52 9</file>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 27 88</file>
                 </tool>
             </inputs>
         </file>
@@ -291,92 +173,7 @@
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 68</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 90</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 74 9</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\Servo.d43</name>
-            <inputs>
-                <tool>
-                    <name>XLINK</name>
-                    <file> 96 5 98 3 41 104 43 26 68 20 40 37 12 19 2 32 17 38 47 35 87</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\gpio.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 20</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 101</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 95 9</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\wdt_a.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 35</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
                     <file> 100</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 93 9</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\lcd_e.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 37</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 48</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 82 9</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sfr.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 32</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -386,96 +183,121 @@
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 75 9</file>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 35 88</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\timer_a.c</name>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\crc.c</name>
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 38</file>
+                    <file> 65</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 70</file>
+                    <file> 98</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 80 9</file>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 21 88</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\hal_LCD.c</name>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\gpio.c</name>
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 40</file>
+                    <file> 9</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 42</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\rtc.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 2</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 13</file>
+                    <file> 58</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 86 9</file>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 36 88</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\main.c</name>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\adc.c</name>
             <outputs>
                 <tool>
                     <name>ICC430</name>
+                    <file> 82</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
                     <file> 12</file>
                 </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 39</file>
-                </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 30 22 14 24 61 53 18 25 46 49 31 11 6 103 16 44 86 85 56 63 82 51 27 0 74 65 29 75 93 91 80 83 54 95 81 15 52 4 64</file>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 42 88</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sysctl.c</name>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_b_i2c.c</name>
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 17</file>
+                    <file> 76</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 1</file>
+                    <file> 78</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 85 9</file>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 43 88</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\lcd_e.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 102</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 50</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 37 88</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_a_uart.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 59</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 18</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 32 88</file>
                 </tool>
             </inputs>
         </file>
@@ -484,17 +306,81 @@
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 19</file>
+                    <file> 15</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 33</file>
+                    <file> 86</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 83 9</file>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 41 88</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\eusci_b_spi.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 11</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 81</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 31 88</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 80</file>
+                </tool>
+                <tool>
+                    <name>ULP430</name>
+                    <file> 87</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\hal_LCD.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 75</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 101</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sysctl.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 3</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 104</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 60 88</file>
                 </tool>
             </inputs>
         </file>
@@ -503,17 +389,130 @@
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 47</file>
+                    <file> 92</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 10</file>
+                    <file> 4</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 53 30 22 14 24 18 25 46 49 31 11 6 103 16 44 81 9</file>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 57 88</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 7</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 94</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 67 6 8 13 24 25 0 16 47 52 85 17 84 69 19 103 61 60 43 21 37 23 10 83 35 42 91 53 51 71 73 41 32 36 57 14 27 105 31</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\sfr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 97</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 68</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 53 88</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\timer_a.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 90</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 48</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 73 88</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\wdt_a.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 89</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 66</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 51 88</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\driverlib\MSP430FR2xx_4xx\rtc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 77</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 20</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 25 67 6 8 13 0 16 47 52 85 17 84 69 19 103 61 88</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\Servo.d43</name>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 46 82 65 2 79 59 76 11 100 9 75 102 7 15 77 97 3 90 92 89 93</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\LDR-multiple.d43</name>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 46 82 65 2 79 59 76 11 100 9 75 102 7 15 77 97 3 90 92 89 93</file>
                 </tool>
             </inputs>
         </file>

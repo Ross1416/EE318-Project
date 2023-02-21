@@ -4,41 +4,37 @@
 #include <driverlib.h>
 #include "hal_LCD.h"
 
+volatile unsigned int vals[8];
 volatile unsigned int val1 = 0;
 volatile unsigned int val2 = 0;
 int current_ADC=1;
 
 int buttonValue; 
-bool selected=0;
+bool selected=7;
 
+int count=0;
 
-#pragma vector=ADC_VECTOR
-__interrupt void ADC_ISR(void)
-{
-  switch(ADCIV)
-  {
-    case ADCIV_ADCIFG:
-      if (current_ADC == 1)
-      {
-        val1 = ADCMEM0;
-        
-        current_ADC = 0;
-      }
-      else if (current_ADC == 0)
-      {
-        val2 = ADCMEM0;
-        current_ADC = 1;
-      }
-      __bis_SR_register_on_exit(LPM0_bits); // Low power mode select? - not low power mode
-      break;
-  }
-}
+//#pragma vector=ADC_VECTOR
+//__interrupt void ADC_ISR(void)
+//{
+//  switch(ADCIV)
+//  {
+//    case ADCIV_ADCIFG:
+////        vals[count] = ADCMEM0;
+////        if (count == 0)
+////          count = 7;
+////        else
+////          count--;
+//      __bis_SR_register_on_exit(LPM0_bits); // Low power mode select? - not low power mode
+//      break;
+//  }
+//}
 void init_ADC(void)
 {    
   SYSCFG2 |= ADCPCTL6 | ADCPCTL7; // Enable A0 & A1;
   
-  ADCCTL0 = 0;
-  ADCCTL0 |= ADCON | ADCSHT_2 | ADCMSC; //Turn on ADC & setting sample and hold time as 16 ADCCLK cycles?
+//  ADCCTL0 = 0;
+  ADCCTL0 |= ADCON | ADCSHT_2;// | ADCMSC; //Turn on ADC & setting sample and hold time as 16 ADCCLK cycles?
   ADCCTL1 |= ADCSHP; // sets the source of the sampling signal (SAMPCON) to the sampling timer? - or sets it to pulse sampling mode?
   ADCCTL2 |= ADCRES; //Set 10 bit resolution 
   
@@ -47,7 +43,7 @@ void init_ADC(void)
   ADCCTL1 |= ADCCONSEQ_3;  //ADC conversion sequence mode select - 10b = Repeat-sequence-of-channels
   
   ADCIFG &= ~0x01; // clear interrupt - why this bit?
-  ADCIE |= ADCIE0; // Enable interrupt;
+//  ADCIE |= ADCIE0; // Enable interrupt;
   
 }
 
@@ -88,6 +84,16 @@ int main(void)
     {
       ADCCTL0 |= ADCSC; // start conversion
 //      printf("LDR1: %u, LDR2: %u \n", val1, val2);
+
+// this works
+      while (ADCIFG0 == 0);
+      
+      vals[count] = ADCMEM0;
+//      val = ADCMEM0;
+      if (count == 0)
+        count = 7;
+      else
+        count--;
       
       buttonValue = GPIO_getInputPinValue(GPIO_PORT_P1, GPIO_PIN3);
       
@@ -96,14 +102,14 @@ int main(void)
         
       if (!selected) 
       {
-        intToChar(valStr, val1);
+        intToChar(valStr, vals[0]);
         showChar('1',pos1);
 //        showChar('',pos2);
       }else
       {
         showChar('2',pos1);
 //        showChar('',pos2);
-        intToChar(valStr, val2);
+        intToChar(valStr, vals[1]);
       }
       
       
