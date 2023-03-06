@@ -112730,13 +112730,167 @@
     "scope": null
   },
   {
+    "ID": "c:@period_led",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "period_led",
+    "location": {
+      "column": "23",
+      "line": "7",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "period_led",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@duty_cycle_led",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "duty_cycle_led",
+    "location": {
+      "column": "23",
+      "line": "8",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "duty_cycle_led",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@map",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "volatile long map(long, long, long, long, long)",
+    "location": {
+      "column": "15",
+      "line": "12",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "map",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@current_angle",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "current_angle",
+    "location": {
+      "column": "14",
+      "line": "16",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "current_angle",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@angle_step_size",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "angle_step_size",
+    "location": {
+      "column": "14",
+      "line": "17",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "angle_step_size",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@servo_lower_limit_count",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "servo_lower_limit_count",
+    "location": {
+      "column": "5",
+      "line": "19",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "servo_lower_limit_count",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@servo_upper_limit_count",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "servo_upper_limit_count",
+    "location": {
+      "column": "5",
+      "line": "20",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "servo_upper_limit_count",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@LDR1",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "LDR1",
+    "location": {
+      "column": "5",
+      "line": "22",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "LDR1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@LDR2",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "LDR2",
+    "location": {
+      "column": "5",
+      "line": "23",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "LDR2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@LDRdiff",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "LDRdiff",
+    "location": {
+      "column": "5",
+      "line": "25",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "LDRdiff",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@pulse_width",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "pulse_width",
+    "location": {
+      "column": "23",
+      "line": "28",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "pulse_width",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@init_timer_LED_flashing",
     "What": "Function",
     "defdec": "Def",
     "display": "void init_timer_LED_flashing(void)",
     "location": {
       "column": "6",
-      "line": "11",
+      "line": "30",
       "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
     },
     "name": "init_timer_LED_flashing",
@@ -112750,10 +112904,38 @@
     "display": "void init_timer_servo(void)",
     "location": {
       "column": "6",
-      "line": "30",
+      "line": "49",
       "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
     },
     "name": "init_timer_servo",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@servo_control",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void servo_control(int)",
+    "location": {
+      "column": "6",
+      "line": "70",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "servo_control",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@update_servo",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void update_servo(void)",
+    "location": {
+      "column": "6",
+      "line": "76",
+      "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
+    },
+    "name": "update_servo",
     "origin": "project_file",
     "scope": null
   },
@@ -112764,7 +112946,7 @@
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "50",
+      "line": "87",
       "path": "C:\\Users\\ringl\\Documents\\Uni Classes\\Y3S2\\EE318-Project\\EE318-Project\\MSP430\\Servo\\main.c"
     },
     "name": "main",
