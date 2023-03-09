@@ -1,0 +1,49 @@
+#Generating source browse information for project ServoLDRControl
+
+
+#Abbreviations
+cc = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.5\common\bin\SourceIndexer.exe
+ll = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.5\common\bin\PbdLink.exe
+bd = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.5\common\bin\makeBrowseData.exe
+
+
+
+#Rules
+rule index
+  depfile = $out.dep
+  command = $cc -out=$out -f $in
+rule link
+  command = $ll -M $out $in
+rule browsedata
+  command = $bd $in -output  $out
+
+
+
+#Build steps
+build adc.pbi : index adc.xcl
+build crc.pbi : index crc.xcl
+build cs.pbi : index cs.xcl
+build eusci_a_spi.pbi : index eusci_a_spi.xcl
+build eusci_a_uart.pbi : index eusci_a_uart.xcl
+build eusci_b_i2c.pbi : index eusci_b_i2c.xcl
+build eusci_b_spi.pbi : index eusci_b_spi.xcl
+build framctl.pbi : index framctl.xcl
+build gpio.pbi : index gpio.xcl
+build lcd_e.pbi : index lcd_e.xcl
+build pmm.pbi : index pmm.xcl
+build rtc.pbi : index rtc.xcl
+build sfr.pbi : index sfr.xcl
+build sysctl.pbi : index sysctl.xcl
+build timer_a.pbi : index timer_a.xcl
+build tlv.pbi : index tlv.xcl
+build wdt_a.pbi : index wdt_a.xcl
+build main.pbi : index main.xcl
+build ServoLDRControl_part0.pbi : link adc.pbi crc.pbi cs.pbi eusci_a_spi.pbi
+build ServoLDRControl_part1.pbi : link eusci_a_uart.pbi eusci_b_i2c.pbi eusci_b_spi.pbi framctl.pbi
+build ServoLDRControl_part2.pbi : link gpio.pbi lcd_e.pbi pmm.pbi rtc.pbi
+build ServoLDRControl_part3.pbi : link sfr.pbi sysctl.pbi timer_a.pbi tlv.pbi
+build ServoLDRControl_part4.pbi : link wdt_a.pbi main.pbi
+build ServoLDRControl.pbd : link ServoLDRControl_part0.pbi ServoLDRControl_part1.pbi ServoLDRControl_part2.pbi ServoLDRControl_part3.pbi ServoLDRControl_part4.pbi
+build ServoLDRControl.pbw : browsedata ServoLDRControl.pbd
+
+
