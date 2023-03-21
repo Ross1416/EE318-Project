@@ -25,6 +25,7 @@ unsigned int potAngle=0;
 // ADC VARIABLES
 unsigned int adc[10]={0};
 unsigned int adc_count=9;
+unsigned int adcTest=0;
 
 // CONFIGURATION VARIABLES
 enum CONFIGURATION
@@ -60,11 +61,11 @@ enum CONFIGURATION config = FIXED;
 #define TRACKING_LED_PIN GPIO_PIN3
 
 // LDR VARIABLES
-#define LDR_L_PORT8
-#define LDR_L_PIN0
+#define LDR_L_PORT GPIO_PORT_P8
+#define LDR_L_PIN GPIO_PIN0
 
-#define LDR_R_PORT1
-#define LDR_R_PIN6
+#define LDR_R_PORT GPIO_PORT_P1
+#define LDR_R_PIN GPIO_PIN6
 
 unsigned int ldr_r_val=0;
 unsigned int ldr_l_val=0;
@@ -148,13 +149,18 @@ void init_select_btns_leds(void)
     GPIO_setAsOutputPin(MANUAL_LED_PORT, MANUAL_LED_PIN);
     // TRACKING MODE LED
     GPIO_setAsOutputPin(TRACKING_LED_PORT, TRACKING_LED_PIN);
+
+    // SET ADC INPUTS AS INPUTS????
+
 }
 
 // SETUP ADC FOR MEASURING POTENTIOMETER
 void init_POT_ADC(void)
 {
-  SYSCFG2 |= ADCPCTL9;// | ADCPCTL8 | ADCPCTL6; // Enable A9,A8,A6;
-
+    // makes no damn difference
+  SYSCFG2 |= ADCPCTL9 | ADCPCTL8 | ADCPCTL6; // Enable A9,A8,A6;
+//    SYSCFG2 |= 0x0340;
+//    SYSCFG2 |= 0x0000;
   ADCCTL0 |= ADCON | ADCSHT_2;// | ADCMSC; //Turn on ADC & setting sample and hold time as 16 ADCCLK cycles? set up multiple sample and conversion - could remove if not sampling anything for fixed
   ADCCTL1 |= ADCSHP; // sets the source of the sampling signal (SAMPCON) to the sampling timer? - or sets it to pulse sampling mode?
   ADCCTL2 |= ADCRES; //Set 10 bit resolution
@@ -194,6 +200,11 @@ void init_timer_servo(void)
   TA0CCR1 = pulse_width; // for pin 1.7
 //  TA0CCR2 = pulse_width; // for pin 1.6? - doesn't work for some reason
 
+//  TA0CCTL0 |= CM_1; //capture on rising edge
+//  TA0CCTL0 |= CCIS_0; // use CCIOA
+//  TA0CCTL0 |= SCS; // Synchronise capture
+//  TA0CCTL0 |=
+//
   TA0CTL |= TASSEL_1; // ACLK clock
   TA0CTL |= ID_0; // divide by 0
   TA0CTL |= MC_1; // up mode - 01b = Up mode: Timer counts up to TAxCCR0
@@ -212,7 +223,7 @@ void update_servo()
 
 
 int main(void)
-{
+ {
     WDTCTL = WDTPW | WDTHOLD;               // Stop watchdog timer
 
     // Disable the GPIO power-on default high-impedance mode
@@ -231,8 +242,9 @@ int main(void)
     while(1)
     {
 
-
-
+        // ##### TEST THIS ######
+//      while (ADCCTL0 & ADCBUSY){
+//      }
       // CHECK WHICH CONFIGURATION IS SELECTED - FIXED BY DEFAULT
       switch(config)
       {
@@ -244,7 +256,26 @@ int main(void)
         update_servo();
         break;
       case MANUAL:
-        ADCCTL0 |= ADCSC; // start conversion
+          // this seems to sort of work but it adds a slight delay
+          if (adcTest > 8)
+          {
+              ADCCTL0 |= ADCSC; // start conversion
+              adcTest = 0;
+          }
+          else
+              adcTest++;
+
+          // none of this seems to work
+//          while (ADCCTL1 & ADCBUSY)
+//          {
+//              adc[adc_count]=ADCMEM0;
+//              if (adc_count <= 0)
+//                  adc_count = 9;
+//              else
+//                  adc_count--;
+//          }
+//          while (ADCIFG0 == 0);
+
         potValue=adc[9];
         potAngle = map(potValue,0,1023,0,180);
         current_angle=180-potAngle;
@@ -264,6 +295,6 @@ int main(void)
       }
 
 
-        __delay_cycles(2000);             // Delay for 100000*(1/MCLK)=0.1s
+//        __delay_cycles(5000);             // Delay for 100000*(1/MCLK)=0.1s
     }
 }
