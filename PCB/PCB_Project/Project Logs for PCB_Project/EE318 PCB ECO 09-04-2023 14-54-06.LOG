@@ -1,0 +1,11 @@
+Added Component: Designator=R?(RESC3216X74N)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.vishay.com/docs/68043/crma.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "0.74mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Vishay"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CRMA1206AF10K0DKEF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "71-CRMA1206AF10K0DKF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Vishay/CRMA1206AF10K0DKEF?qs=QNEnbhJQKvbmEa6uzWLn8A%3D%3D"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=EE318 Member=Component R? CRMA1206AF10K0DKEF
+Added Room: Name=EE318

@@ -1,0 +1,320 @@
+Removed Pin From Net: NetName=MUX_CH4 Pin=B1-1
+Removed Pin From Net: NetName=MUX_CH6 Pin=B1-2
+Removed Pin From Net: NetName=+5 Pin=B1-3
+Removed Pin From Net: NetName=MUX_CH7 Pin=B1-4
+Removed Pin From Net: NetName=MUX_CH5 Pin=B1-5
+Removed Pin From Net: NetName=MUX_INH Pin=B1-6
+Removed Pin From Net: NetName=GND Pin=B1-7
+Removed Pin From Net: NetName=GND Pin=B1-8
+Removed Pin From Net: NetName=MUX_C Pin=B1-9
+Removed Pin From Net: NetName=MUX_B Pin=B1-10
+Removed Pin From Net: NetName=MUX_A Pin=B1-11
+Removed Pin From Net: NetName=MUX_CH3 Pin=B1-12
+Removed Pin From Net: NetName=MUX_CH0 Pin=B1-13
+Removed Pin From Net: NetName=MUX_CH1 Pin=B1-14
+Removed Pin From Net: NetName=MUX_CH2 Pin=B1-15
+Removed Pin From Net: NetName=+5 Pin=B1-16
+Removed Pin From Net: NetName=LED_MODE_1 Pin=D1-1
+Removed Pin From Net: NetName=LED_MODE_2 Pin=D2-1
+Removed Pin From Net: NetName=LED_MODE_3 Pin=D3-1
+Removed Pin From Net: NetName=MUX_CH0 Pin=D4-1
+Removed Pin From Net: NetName=MUX_CH1 Pin=D5-2
+Removed Pin From Net: NetName=MUX_CH2 Pin=D6-2
+Removed Pin From Net: NetName=MUX_CH3 Pin=D7-1
+Removed Pin From Net: NetName=MUX_CH4 Pin=D8-2
+Removed Pin From Net: NetName=MUX_CH5 Pin=D9-2
+Removed Pin From Net: NetName=MUX_CH6 Pin=D10-1
+Removed Pin From Net: NetName=GND Pin=R1-2
+Removed Pin From Net: NetName=GND Pin=R2-2
+Removed Pin From Net: NetName=GND Pin=R6-2
+Removed Pin From Net: NetName=+3.3 Pin=X1-1
+Removed Pin From Net: NetName=MODE_BTN_1 Pin=X1-3
+Removed Pin From Net: NetName=+3.3 Pin=X2-1
+Removed Pin From Net: NetName=MODE_BTN_2 Pin=X2-3
+Removed Pin From Net: NetName=+3.3 Pin=X3-1
+Removed Pin From Net: NetName=MODE_BTN_3 Pin=X3-3
+Removed Member From Class: ClassName=EE318 Member=B1
+Removed Member From Class: ClassName=EE318 Member=D1
+Removed Member From Class: ClassName=EE318 Member=D2
+Removed Member From Class: ClassName=EE318 Member=D3
+Removed Member From Class: ClassName=EE318 Member=D4
+Removed Member From Class: ClassName=EE318 Member=D5
+Removed Member From Class: ClassName=EE318 Member=D6
+Removed Member From Class: ClassName=EE318 Member=D7
+Removed Member From Class: ClassName=EE318 Member=D8
+Removed Member From Class: ClassName=EE318 Member=D9
+Removed Member From Class: ClassName=EE318 Member=D10
+Removed Member From Class: ClassName=EE318 Member=J6
+Removed Member From Class: ClassName=EE318 Member=X1
+Removed Member From Class: ClassName=EE318 Member=X2
+Removed Member From Class: ClassName=EE318 Member=X3
+Change Component Footprint: Designator=J5 Old Footprint=RHDR2W50P0X254_1X2_508X254X420P New Footprint=HDRRA4W63P0X254_1X4_1016X260X264P
+Change Component Footprint: Designator=J2 Old Footprint=RHDR2W50P0X254_1X2_508X254X420P New Footprint=RHDR2W60P0X254_1X2_508X254X700P
+Change Component Comment : Designator=J2 Old Comment=2 pin header (F) New Comment=801-87-002-10-001101
+Change Component Comment : Designator=J5 Old Comment=2 pin header (F) New Comment=861400041LO1705LF
+Change Component Comment : Designator=R1 Old Comment=10k New Comment=220R
+Change Component Comment : Designator=R2 Old Comment=10k New Comment=220R
+Change Component Comment : Designator=R6 Old Comment=10k New Comment=220R
+Change Component Comment : Designator=J1 Old Comment=10 pin header (F) New Comment=61301011821
+Change Component Comment : Designator=J3 Old Comment=10 pin header (F) New Comment=61301011821
+Change Component Comment : Designator=R5 Old Comment=220R New Comment=10k
+Change component parameters: Designator = "J1" ("J1"); Footprint = "RHDR10W60P0X254_1X10_2590X250X850P"; UniqueID = "\NHJZKGFI" ("\NHJZKGFI")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "http://katalog.we-online.de/em/datasheet/6130xx11821.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "8.5mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "61301011821"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "710-61301011821"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/61301011821?qs=W%252B2sBeLta1ZhlLR0YCzonQ%3D%3D"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J2" ("J2"); Footprint = "RHDR2W50P0X254_1X2_508X254X420P"; UniqueID = "\VCTAZJOU" ("\VCTAZJOU")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "http://www.precidip.com/AppHost/9696,1/Scripts/Modules/Catalog/Default.aspx?c=7&i=310&p=107&pdf=1&dsku=801-PP-NNN-10-001101"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "7mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Preci-Dip"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "801-87-002-10-001101"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "437-8018700210001101"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=437-8018700210001101"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J3" ("J3"); Footprint = "RHDR10W60P0X254_1X10_2590X250X850P"; UniqueID = "\KWCBNNVE" ("\KWCBNNVE")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "http://katalog.we-online.de/em/datasheet/6130xx11821.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "8.5mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "61301011821"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "710-61301011821"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/61301011821?qs=W%252B2sBeLta1ZhlLR0YCzonQ%3D%3D"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J4" ("J4"); Footprint = "10129379903003BLF"; UniqueID = "\PSDUOPFN" ("\PSDUOPFN")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/10129379.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "2.41mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Amphenol Communications Solutions"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "10129379-903003BLF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "649-1012937990303BLF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Amphenol-FCI/10129379-903003BLF?qs=0lQeLiL1qya1UBwARe4kTQ%3D%3D"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J5" ("J5"); Footprint = "RHDR2W50P0X254_1X2_508X254X420P"; UniqueID = "\EJBTHWTB" ("\EJBTHWTB")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/c-8614-0136.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "2.64mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Amphenol Communications Solutions"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "861400041LO1705LF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "649-86140041LO1705LF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Amphenol-FCI/861400041LO1705LF?qs=7JiUwvV4mh6qwBpNV5AhhA%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=IC1(DIP794W53P254L1930H508Q16N)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "CD4051BE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/cd4051be/texas-instruments?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.ti.com/lit/ds/symlink/cd4051b.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "5.08mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CD4051BE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "595-CD4051BE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/CD4051BE?qs=q2XTDbzbm6DxulBsMcV7tA%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=LED1(C503BRCNCW0Z0AA2)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "C503B-RCN-CW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/c503b-rcn-cw0z0aa2/cree-led?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.cree.com/led-components/media/documents/C503B-RAS-RAN-AAS-AAN-RBS-RBN-ABS-ABN-RCS-RCN-ACS-ACN-1079.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "10.3mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Wolfspeed"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "C503B-RCN-CW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "941-C503BRCNCW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Cree-LED/C503B-RCN-CW0Z0AA2?qs=D3QG1iK7Fqi9NpEpLN2Agw%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=LED2(C503BRCNCW0Z0AA2)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "C503B-RCN-CW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/c503b-rcn-cw0z0aa2/cree-led?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.cree.com/led-components/media/documents/C503B-RAS-RAN-AAS-AAN-RBS-RBN-ABS-ABN-RCS-RCN-ACS-ACN-1079.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "10.3mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Wolfspeed"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "C503B-RCN-CW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "941-C503BRCNCW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Cree-LED/C503B-RCN-CW0Z0AA2?qs=D3QG1iK7Fqi9NpEpLN2Agw%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=LED3(C503BRCNCW0Z0AA2)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "C503B-RCN-CW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/c503b-rcn-cw0z0aa2/cree-led?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.cree.com/led-components/media/documents/C503B-RAS-RAN-AAS-AAN-RBS-RBN-ABS-ABN-RCS-RCN-ACS-ACN-1079.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "10.3mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Wolfspeed"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "C503B-RCN-CW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "941-C503BRCNCW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Cree-LED/C503B-RCN-CW0Z0AA2?qs=D3QG1iK7Fqi9NpEpLN2Agw%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=LED4(C503BRCNCW0Z0AA2)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "C503B-RCN-CW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/c503b-rcn-cw0z0aa2/cree-led?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.cree.com/led-components/media/documents/C503B-RAS-RAN-AAS-AAN-RBS-RBN-ABS-ABN-RCS-RCN-ACS-ACN-1079.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "10.3mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Wolfspeed"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "C503B-RCN-CW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "941-C503BRCNCW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Cree-LED/C503B-RCN-CW0Z0AA2?qs=D3QG1iK7Fqi9NpEpLN2Agw%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=LED5(151051YS04000)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://katalog.we-online.de/led/datasheet/151051YS04000.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "8.95mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "151051YS04000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "710-151051YS04000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/151051YS04000?qs=LlUlMxKIyB0Q49NwiX6stg%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=LED6(151051YS04000)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://katalog.we-online.de/led/datasheet/151051YS04000.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "8.95mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "151051YS04000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "710-151051YS04000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/151051YS04000?qs=LlUlMxKIyB0Q49NwiX6stg%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=LED7(C503BGANCB0F0791)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "C503B-GAN-CB0F0791"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/c503b-gan-cb0f0791/cree"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.cree.com/led-components/media/documents/1300-C503B-BAS-BAN-GAS-GAN.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "10.55mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Wolfspeed"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "C503B-GAN-CB0F0791"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "941-C503BGANCB0F0791"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Cree-LED/C503B-GAN-CB0F0791?qs=UHyCXFkX5Ey%252ByHW9bNI8Ew%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=LED8(151051YS04000)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://katalog.we-online.de/led/datasheet/151051YS04000.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "8.95mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "151051YS04000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "710-151051YS04000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/151051YS04000?qs=LlUlMxKIyB0Q49NwiX6stg%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=LED9(151051YS04000)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://katalog.we-online.de/led/datasheet/151051YS04000.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "8.95mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "151051YS04000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "710-151051YS04000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/151051YS04000?qs=LlUlMxKIyB0Q49NwiX6stg%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=LED10(C503BRCNCW0Z0AA2)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "C503B-RCN-CW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/c503b-rcn-cw0z0aa2/cree-led?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.cree.com/led-components/media/documents/C503B-RAS-RAN-AAS-AAN-RBS-RBN-ABS-ABN-RCS-RCN-ACS-ACN-1079.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "10.3mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Wolfspeed"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "C503B-RCN-CW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "941-C503BRCNCW0Z0AA2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Cree-LED/C503B-RCN-CW0Z0AA2?qs=D3QG1iK7Fqi9NpEpLN2Agw%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=S1(TS026655BK160LCRD)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "TS02-66-55-BK-160-LCR-D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/ts02-66-55-bk-160-lcr-d/cui-devices?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.cuidevices.com/product/resource/ts02.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "5.7mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "CUI Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "TS02-66-55-BK-160-LCR-D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "179-TS026655BK160LCR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/CUI-Devices/TS02-66-55-BK-160-LCR-D?qs=A6eO%252BMLsxmRHvFZWtBPtJQ%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=S2(TS026655BK160LCRD)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "TS02-66-55-BK-160-LCR-D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/ts02-66-55-bk-160-lcr-d/cui-devices?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.cuidevices.com/product/resource/ts02.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "5.7mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "CUI Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "TS02-66-55-BK-160-LCR-D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "179-TS026655BK160LCR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/CUI-Devices/TS02-66-55-BK-160-LCR-D?qs=A6eO%252BMLsxmRHvFZWtBPtJQ%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=S3(TS026655BK160LCRD)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "TS02-66-55-BK-160-LCR-D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/ts02-66-55-bk-160-lcr-d/cui-devices?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.cuidevices.com/product/resource/ts02.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "5.7mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "CUI Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "TS02-66-55-BK-160-LCR-D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "179-TS026655BK160LCR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/CUI-Devices/TS02-66-55-BK-160-LCR-D?qs=A6eO%252BMLsxmRHvFZWtBPtJQ%3D%3D"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=MUX_CH4 Pin=IC1-1
+Added Pin To Net: NetName=MUX_CH6 Pin=IC1-2
+Added Pin To Net: NetName=+5 Pin=IC1-3
+Added Pin To Net: NetName=MUX_CH7 Pin=IC1-4
+Added Pin To Net: NetName=MUX_CH5 Pin=IC1-5
+Added Pin To Net: NetName=MUX_INH Pin=IC1-6
+Added Pin To Net: NetName=GND Pin=IC1-7
+Added Pin To Net: NetName=GND Pin=IC1-8
+Added Pin To Net: NetName=MUX_C Pin=IC1-9
+Added Pin To Net: NetName=MUX_B Pin=IC1-10
+Added Pin To Net: NetName=MUX_A Pin=IC1-11
+Added Pin To Net: NetName=MUX_CH3 Pin=IC1-12
+Added Pin To Net: NetName=MUX_CH0 Pin=IC1-13
+Added Pin To Net: NetName=MUX_CH1 Pin=IC1-14
+Added Pin To Net: NetName=MUX_CH2 Pin=IC1-15
+Added Pin To Net: NetName=+5 Pin=IC1-16
+Added Pin To Net: NetName=LED_MODE_1 Pin=LED1-1
+Added Pin To Net: NetName=LED_MODE_2 Pin=LED2-1
+Added Pin To Net: NetName=LED_MODE_3 Pin=LED3-1
+Added Pin To Net: NetName=MUX_CH0 Pin=LED4-1
+Added Pin To Net: NetName=MUX_CH1 Pin=LED5-2
+Added Pin To Net: NetName=MUX_CH2 Pin=LED6-2
+Added Pin To Net: NetName=MUX_CH3 Pin=LED7-1
+Added Pin To Net: NetName=MUX_CH4 Pin=LED8-2
+Added Pin To Net: NetName=MUX_CH5 Pin=LED9-2
+Added Pin To Net: NetName=MUX_CH6 Pin=LED10-1
+Added Pin To Net: NetName=GND Pin=R1-1
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R6-1
+Added Pin To Net: NetName=+3.3 Pin=S1-1
+Added Pin To Net: NetName=MODE_BTN_1 Pin=S1-3
+Added Pin To Net: NetName=+3.3 Pin=S2-1
+Added Pin To Net: NetName=MODE_BTN_2 Pin=S2-3
+Added Pin To Net: NetName=+3.3 Pin=S3-1
+Added Pin To Net: NetName=MODE_BTN_3 Pin=S3-3
+Added Pin To Net: NetName=NetLED1_2 Pin=LED1-2
+Added Pin To Net: NetName=NetLED1_2 Pin=R3-2
+Added Net: Name=NetLED1_2
+Added Pin To Net: NetName=NetLED2_2 Pin=LED2-2
+Added Pin To Net: NetName=NetLED2_2 Pin=R4-2
+Added Net: Name=NetLED2_2
+Added Pin To Net: NetName=NetLED3_2 Pin=LED3-2
+Added Pin To Net: NetName=NetLED3_2 Pin=R5-2
+Added Net: Name=NetLED3_2
+Added Pin To Net: NetName=NetLED4_2 Pin=LED4-2
+Added Pin To Net: NetName=NetLED4_2 Pin=R8-2
+Added Net: Name=NetLED4_2
+Added Pin To Net: NetName=NetLED5_1 Pin=LED5-1
+Added Pin To Net: NetName=NetLED5_1 Pin=R9-2
+Added Net: Name=NetLED5_1
+Added Pin To Net: NetName=NetLED6_1 Pin=LED6-1
+Added Pin To Net: NetName=NetLED6_1 Pin=R10-2
+Added Net: Name=NetLED6_1
+Added Pin To Net: NetName=NetLED7_2 Pin=LED7-2
+Added Pin To Net: NetName=NetLED7_2 Pin=R11-2
+Added Net: Name=NetLED7_2
+Added Pin To Net: NetName=NetLED8_1 Pin=LED8-1
+Added Pin To Net: NetName=NetLED8_1 Pin=R12-2
+Added Net: Name=NetLED8_1
+Added Pin To Net: NetName=NetLED9_1 Pin=LED9-1
+Added Pin To Net: NetName=NetLED9_1 Pin=R13-2
+Added Net: Name=NetLED9_1
+Added Pin To Net: NetName=NetLED10_2 Pin=LED10-2
+Added Pin To Net: NetName=NetLED10_2 Pin=R14-2
+Added Net: Name=NetLED10_2
+Added Pin To Net: NetName=NetR1_2 Pin=R1-2
+Added Pin To Net: NetName=NetR1_2 Pin=S1-4
+Added Net: Name=NetR1_2
+Added Pin To Net: NetName=NetR2_2 Pin=R2-2
+Added Pin To Net: NetName=NetR2_2 Pin=S2-4
+Added Net: Name=NetR2_2
+Added Pin To Net: NetName=NetR6_2 Pin=R6-2
+Added Pin To Net: NetName=NetR6_2 Pin=S3-4
+Added Net: Name=NetR6_2
+Added Member To Class: ClassName=EE318 Member=Component IC1 CD4051BE
+Added Member To Class: ClassName=EE318 Member=Component LED1 RED
+Added Member To Class: ClassName=EE318 Member=Component LED2 RED
+Added Member To Class: ClassName=EE318 Member=Component LED3 RED
+Added Member To Class: ClassName=EE318 Member=Component LED4 RED
+Added Member To Class: ClassName=EE318 Member=Component LED5 YELLOW
+Added Member To Class: ClassName=EE318 Member=Component LED6 YELLOW
+Added Member To Class: ClassName=EE318 Member=Component LED7 GREEN
+Added Member To Class: ClassName=EE318 Member=Component LED8 YELLOW
+Added Member To Class: ClassName=EE318 Member=Component LED9 YELLOW
+Added Member To Class: ClassName=EE318 Member=Component LED10 RED
+Added Member To Class: ClassName=EE318 Member=Component S1 TS02-66-55-BK-160-LCR-D
+Added Member To Class: ClassName=EE318 Member=Component S2 TS02-66-55-BK-160-LCR-D
+Added Member To Class: ClassName=EE318 Member=Component S3 TS02-66-55-BK-160-LCR-D
+Added Room: Name=EE318

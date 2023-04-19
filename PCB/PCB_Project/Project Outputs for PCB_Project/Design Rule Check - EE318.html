@@ -1,0 +1,658 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD22\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">13/04/2023</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">19:31:19</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc" class="file"><acronym title="C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc">C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">106</td></tr>
+</table>
+</td>
+</table><a name="IDUQNY0BPH1Q4RBNWH4TT0JZ2IIAWZB3EIZIJIGLRBZREKSDMEWFM"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUNUJ0XSVPMA4NL3XIPF00K4UYJCISE3ATQQI1SOCNDV03ELFQCWP">Clearance Constraint (Gap=10mil) (All),(All)</a></td>
+<td class="column2">18</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJP4T0UWVFTBVMAOQ4FDRHRWEFG5XGNX4Y1HWWFNLFTGFV3B5RQK">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJTUTNSIAFBKPPYSRDTQZ5ALPCDWIGRCAI01ZUDMJSQAIHJOLL4MI">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">53</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDEHRVDBUXLMASBPSLYSP0KLN2KDDS0W4H0WHV3QH1IN53ZIJR0W4J">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOVNGPE532FF3OPO554YA4GITHFBAR0KPI0R3VND1D5HAOXLDSAZO">Width Constraint (Min=39.37mil) (Max=78.74mil) (Preferred=39.37mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZ2DRL1SI5OUTI1WP02L5JLEC2KPF4BGIEDZDHCNLT5TYEYECYOTB">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDL4BC5KOSJMKJOW4AAHCOT51EBI1WFINMOSVHZHBUF2N52NQ1XX0N">Hole Size Constraint (Min=31.496mil) (Max=100mil) (All)</a></td>
+<td class="column2">28</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKV0DZJGSK2VGLY0EQBJAFHBNCLSQUFISEV45WESU2MEUFLAQ1D">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZH0S4OM0IWG1FMAHLMGR3STAQEVXUK3TGGNQ4U2L3XKXCQZ3IFN">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDR3JGTH00LMEOEFPFEVAY0SMVJM1XAVAC4KFXSJGVGHACHIHT4LUD">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</a></td>
+<td class="column2">7</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUKUKDOYNYLI5BDET25SLL25S2DXB5AX4GF4W0DUT355GECX0NS">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNNA1N10PGTN1K0RLCCH0GGFE1CY2H01KUBK20CKR0QIBHNTEJRWE">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBWX3BLEFICJJIAP4BKRDZ4OW4F1CES5DEMHMZWNBJ0CU3KGI2RLO">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">106</td>
+</tr>
+</table><br><a name="IDUNUJ0XSVPMA4NL3XIPF00K4UYJCISE3ATQQI1SOCNDV03ELFQCWP"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1335.782mil|Location2.X=1391.657mil|Location1.Y=1309.69mil|Location2.Y=1350.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1335.782mil|Location2.X=1391.657mil|Location1.Y=1309.69mil|Location2.Y=1350.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J1-1(1356.092mil,1280mil) on Multi-Layer And Pad J1-2(1356.092mil,1380mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1335.782mil|Location2.X=1391.657mil|Location1.Y=2109.69mil|Location2.Y=2150.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1335.782mil|Location2.X=1391.657mil|Location1.Y=2109.69mil|Location2.Y=2150.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J1-10(1356.092mil,2180mil) on Multi-Layer And Pad J1-9(1356.092mil,2080mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1335.782mil|Location2.X=1391.657mil|Location1.Y=1409.69mil|Location2.Y=1450.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1335.782mil|Location2.X=1391.657mil|Location1.Y=1409.69mil|Location2.Y=1450.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J1-2(1356.092mil,1380mil) on Multi-Layer And Pad J1-3(1356.092mil,1480mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1335.782mil|Location2.X=1391.657mil|Location1.Y=1909.69mil|Location2.Y=1950.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1335.782mil|Location2.X=1391.657mil|Location1.Y=1909.69mil|Location2.Y=1950.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J1-7(1356.092mil,1880mil) on Multi-Layer And Pad J1-8(1356.092mil,1980mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1335.782mil|Location2.X=1391.657mil|Location1.Y=2009.69mil|Location2.Y=2050.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1335.782mil|Location2.X=1391.657mil|Location1.Y=2009.69mil|Location2.Y=2050.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J1-8(1356.092mil,1980mil) on Multi-Layer And Pad J1-9(1356.092mil,2080mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1259.69mil|Location2.Y=1300.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1259.69mil|Location2.Y=1300.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J3-1(3156.092mil,1230mil) on Multi-Layer And Pad J3-2(3156.092mil,1330mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=2059.69mil|Location2.Y=2100.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=2059.69mil|Location2.Y=2100.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J3-10(3156.092mil,2130mil) on Multi-Layer And Pad J3-9(3156.092mil,2030mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1359.69mil|Location2.Y=1400.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1359.69mil|Location2.Y=1400.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J3-2(3156.092mil,1330mil) on Multi-Layer And Pad J3-3(3156.092mil,1430mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1459.69mil|Location2.Y=1500.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1459.69mil|Location2.Y=1500.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J3-3(3156.092mil,1430mil) on Multi-Layer And Pad J3-4(3156.092mil,1530mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1559.69mil|Location2.Y=1600.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1559.69mil|Location2.Y=1600.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J3-4(3156.092mil,1530mil) on Multi-Layer And Pad J3-5(3156.092mil,1630mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1659.69mil|Location2.Y=1700.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1659.69mil|Location2.Y=1700.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J3-5(3156.092mil,1630mil) on Multi-Layer And Pad J3-6(3156.092mil,1730mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1759.69mil|Location2.Y=1800.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1759.69mil|Location2.Y=1800.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J3-6(3156.092mil,1730mil) on Multi-Layer And Pad J3-7(3156.092mil,1830mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1859.69mil|Location2.Y=1900.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1859.69mil|Location2.Y=1900.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J3-7(3156.092mil,1830mil) on Multi-Layer And Pad J3-8(3156.092mil,1930mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1959.69mil|Location2.Y=2000.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3135.782mil|Location2.X=3191.657mil|Location1.Y=1959.69mil|Location2.Y=2000.31mil|Absolute=True">Clearance Constraint: (37.992mil &lt; 39.37mil) Between Pad J3-8(3156.092mil,1930mil) on Multi-Layer And Pad J3-9(3156.092mil,2030mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1896.69mil|Location2.X=1937.31mil|Location1.Y=4108.435mil|Location2.Y=4164.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1896.69mil|Location2.X=1937.31mil|Location1.Y=4108.435mil|Location2.Y=4164.31mil|Absolute=True">Clearance Constraint: (35.039mil &lt; 39.37mil) Between Pad J4-1(1867mil,4144mil) on Multi-Layer And Pad J4-2(1967mil,4144mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1996.69mil|Location2.X=2037.31mil|Location1.Y=4108.435mil|Location2.Y=4164.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1996.69mil|Location2.X=2037.31mil|Location1.Y=4108.435mil|Location2.Y=4164.31mil|Absolute=True">Clearance Constraint: (35.039mil &lt; 39.37mil) Between Pad J4-2(1967mil,4144mil) on Multi-Layer And Pad J4-3(2067mil,4144mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2854.249mil|Location2.X=2894.869mil|Location1.Y=2482.845mil|Location2.Y=2538.72mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2854.249mil|Location2.X=2894.869mil|Location1.Y=2482.845mil|Location2.Y=2538.72mil|Absolute=True">Clearance Constraint: (27.559mil &lt; 39.37mil) Between Pad R7-1(2825.347mil,2518.41mil) on Multi-Layer And Pad R7-2(2923.772mil,2518.41mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2952.674mil|Location2.X=2993.294mil|Location1.Y=2482.845mil|Location2.Y=2538.72mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2952.674mil|Location2.X=2993.294mil|Location1.Y=2482.845mil|Location2.Y=2538.72mil|Absolute=True">Clearance Constraint: (27.559mil &lt; 39.37mil) Between Pad R7-2(2923.772mil,2518.41mil) on Multi-Layer And Pad R7-3(3022.197mil,2518.41mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDJTUTNSIAFBKPPYSRDTQZ5ALPCDWIGRCAI01ZUDMJSQAIHJOLL4MI"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1521.756mil|Location2.X=2741.62mil|Location1.Y=2571.457mil|Location2.Y=3785.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1521.756mil|Location2.X=2741.62mil|Location1.Y=2571.457mil|Location2.Y=3785.528mil|Absolute=True">Un-Routed Net Constraint: Net MUX_CH4 Between Pad IC1-1(1548mil,2597.701mil) on Multi-Layer And Pad LED8-2(2708.092mil,3752mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2121.756mil|Location2.X=3191.096mil|Location1.Y=1694.996mil|Location2.Y=2936.543mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2121.756mil|Location2.X=3191.096mil|Location1.Y=1694.996mil|Location2.Y=2936.543mil|Absolute=True">Un-Routed Net Constraint: Net MUX_B Between Pad IC1-10(2148mil,2910.299mil) on Multi-Layer And Pad J3-6(3156.092mil,1730mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2021.756mil|Location2.X=3191.096mil|Location1.Y=1494.996mil|Location2.Y=2936.543mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2021.756mil|Location2.X=3191.096mil|Location1.Y=1494.996mil|Location2.Y=2936.543mil|Absolute=True">Un-Routed Net Constraint: Net MUX_A Between Pad IC1-11(2048mil,2910.299mil) on Multi-Layer And Pad J3-4(3156.092mil,1530mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1921.756mil|Location2.X=2274.966mil|Location1.Y=2884.055mil|Location2.Y=3783.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1921.756mil|Location2.X=2274.966mil|Location1.Y=2884.055mil|Location2.Y=3783.874mil|Absolute=True">Un-Routed Net Constraint: Net MUX_CH3 Between Pad IC1-12(1948mil,2910.299mil) on Multi-Layer And Pad LED7-1(2243.092mil,3752mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1138.47mil|Location2.X=1874.244mil|Location1.Y=2884.055mil|Location2.Y=3786.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1138.47mil|Location2.X=1874.244mil|Location1.Y=2884.055mil|Location2.Y=3786.622mil|Absolute=True">Un-Routed Net Constraint: Net MUX_CH0 Between Pad LED4-1(1166.092mil,3759mil) on Multi-Layer And Pad IC1-13(1848mil,2910.299mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1584.565mil|Location2.X=1774.244mil|Location1.Y=2884.055mil|Location2.Y=3785.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1584.565mil|Location2.X=1774.244mil|Location1.Y=2884.055mil|Location2.Y=3785.528mil|Absolute=True">Un-Routed Net Constraint: Net MUX_CH1 Between Pad LED5-2(1618.092mil,3752mil) on Multi-Layer And Pad IC1-14(1748mil,2910.299mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1621.756mil|Location2.X=2016.62mil|Location1.Y=2884.055mil|Location2.Y=3785.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1621.756mil|Location2.X=2016.62mil|Location1.Y=2884.055mil|Location2.Y=3785.528mil|Absolute=True">Un-Routed Net Constraint: Net MUX_CH2 Between Pad IC1-15(1648mil,2910.299mil) on Multi-Layer And Pad LED6-2(1983.092mil,3752mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1521.756mil|Location2.X=1774.244mil|Location1.Y=2571.457mil|Location2.Y=2936.543mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1521.756mil|Location2.X=1774.244mil|Location1.Y=2571.457mil|Location2.Y=2936.543mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad IC1-16(1548mil,2910.299mil) on Multi-Layer And Pad IC1-3(1748mil,2597.701mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1521.756mil|Location2.X=1903.48mil|Location1.Y=2884.055mil|Location2.Y=4180.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1521.756mil|Location2.X=1903.48mil|Location1.Y=2884.055mil|Location2.Y=4180.48mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad IC1-16(1548mil,2910.299mil) on Multi-Layer And Pad J4-1(1867mil,4144mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1621.756mil|Location2.X=3351.714mil|Location1.Y=2571.457mil|Location2.Y=3777.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1621.756mil|Location2.X=3351.714mil|Location1.Y=2571.457mil|Location2.Y=3777.622mil|Absolute=True">Un-Routed Net Constraint: Net MUX_CH6 Between Pad IC1-2(1648mil,2597.701mil) on Multi-Layer And Pad LED10-1(3324.092mil,3750mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1459.346mil|Location2.X=1774.244mil|Location1.Y=2056.378mil|Location2.Y=2623.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1459.346mil|Location2.X=1774.244mil|Location1.Y=2056.378mil|Location2.Y=2623.945mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad J2-1(1486.968mil,2084mil) on Multi-Layer And Pad IC1-3(1748mil,2597.701mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1921.756mil|Location2.X=3106.62mil|Location1.Y=2571.457mil|Location2.Y=3785.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1921.756mil|Location2.X=3106.62mil|Location1.Y=2571.457mil|Location2.Y=3785.528mil|Absolute=True">Un-Routed Net Constraint: Net MUX_CH5 Between Pad IC1-5(1948mil,2597.701mil) on Multi-Layer And Pad LED9-2(3073.092mil,3752mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2021.756mil|Location2.X=3191.096mil|Location1.Y=1394.996mil|Location2.Y=2623.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2021.756mil|Location2.X=3191.096mil|Location1.Y=1394.996mil|Location2.Y=2623.945mil|Absolute=True">Un-Routed Net Constraint: Net MUX_INH Between Pad IC1-6(2048mil,2597.701mil) on Multi-Layer And Pad J3-3(3156.092mil,1430mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2121.756mil|Location2.X=2274.244mil|Location1.Y=2571.457mil|Location2.Y=2623.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2121.756mil|Location2.X=2274.244mil|Location1.Y=2571.457mil|Location2.Y=2623.945mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad IC1-7(2148mil,2597.701mil) on Multi-Layer And Pad IC1-8(2248mil,2597.701mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2030.52mil|Location2.X=2174.244mil|Location1.Y=2571.457mil|Location2.Y=4180.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2030.52mil|Location2.X=2174.244mil|Location1.Y=2571.457mil|Location2.Y=4180.48mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J4-3(2067mil,4144mil) on Multi-Layer And Pad IC1-7(2148mil,2597.701mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2221.756mil|Location2.X=2842.339mil|Location1.Y=2571.457mil|Location2.Y=2885.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2221.756mil|Location2.X=2842.339mil|Location1.Y=2571.457mil|Location2.Y=2885.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad IC1-8(2248mil,2597.701mil) on Multi-Layer And Pad R7-4(2750.543mil,2794mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2221.756mil|Location2.X=3191.096mil|Location1.Y=1794.996mil|Location2.Y=2936.543mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2221.756mil|Location2.X=3191.096mil|Location1.Y=1794.996mil|Location2.Y=2936.543mil|Absolute=True">Un-Routed Net Constraint: Net MUX_C Between Pad IC1-9(2248mil,2910.299mil) on Multi-Layer And Pad J3-7(3156.092mil,1830mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1321.088mil|Location2.X=1671.455mil|Location1.Y=1244.996mil|Location2.Y=1363.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1321.088mil|Location2.X=1671.455mil|Location1.Y=1244.996mil|Location2.Y=1363.622mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad J1-1(1356.092mil,1280mil) on Multi-Layer And Pad S1-1(1637.927mil,1330.094mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1321.088mil|Location2.X=2668.622mil|Location1.Y=1875.378mil|Location2.Y=2215.004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1321.088mil|Location2.X=2668.622mil|Location1.Y=1875.378mil|Location2.Y=2215.004mil|Absolute=True">Un-Routed Net Constraint: Net LED_MODE_3 Between Pad J1-10(1356.092mil,2180mil) on Multi-Layer And Pad LED3-1(2641mil,1903mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1321.088mil|Location2.X=2963.205mil|Location1.Y=1344.996mil|Location2.Y=2557.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1321.088mil|Location2.X=2963.205mil|Location1.Y=1344.996mil|Location2.Y=2557.843mil|Absolute=True">Un-Routed Net Constraint: Net POT Between Pad J1-2(1356.092mil,1380mil) on Multi-Layer And Pad R7-2(2923.772mil,2518.41mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1321.088mil|Location2.X=1701.622mil|Location1.Y=1866.378mil|Location2.Y=2015.004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1321.088mil|Location2.X=1701.622mil|Location1.Y=1866.378mil|Location2.Y=2015.004mil|Absolute=True">Un-Routed Net Constraint: Net LED_MODE_1 Between Pad J1-8(1356.092mil,1980mil) on Multi-Layer And Pad LED1-1(1674mil,1894mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1321.088mil|Location2.X=2194.622mil|Location1.Y=1872.378mil|Location2.Y=2115.004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1321.088mil|Location2.X=2194.622mil|Location1.Y=1872.378mil|Location2.Y=2115.004mil|Absolute=True">Un-Routed Net Constraint: Net LED_MODE_2 Between Pad J1-9(1356.092mil,2080mil) on Multi-Layer And Pad LED2-1(2167mil,1900mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1459.346mil|Location2.X=1968.449mil|Location1.Y=1772.228mil|Location2.Y=2211.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1459.346mil|Location2.X=1968.449mil|Location1.Y=1772.228mil|Location2.Y=2211.622mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J2-2(1486.968mil,2184mil) on Multi-Layer And Pad R3-1(1930mil,1797.882mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2871.551mil|Location2.X=3191.096mil|Location1.Y=1194.996mil|Location2.Y=1825.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2871.551mil|Location2.X=3191.096mil|Location1.Y=1194.996mil|Location2.Y=1825.535mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R5-1(2910mil,1799.882mil) on Top Layer [Unplated] And Pad J3-1(3156.092mil,1230mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.088mil|Location2.X=4217.535mil|Location1.Y=1068.551mil|Location2.Y=1265.004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.088mil|Location2.X=4217.535mil|Location1.Y=1068.551mil|Location2.Y=1265.004mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J3-1(3156.092mil,1230mil) on Multi-Layer And Pad R9-1(4191.882mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2739.73mil|Location2.X=3191.096mil|Location1.Y=1299.567mil|Location2.Y=2165.004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2739.73mil|Location2.X=3191.096mil|Location1.Y=1299.567mil|Location2.Y=2165.004mil|Absolute=True">Un-Routed Net Constraint: Net MODE_BTN_3 Between Pad S3-3(2773.258mil,1333.094mil) on Multi-Layer And Pad J3-10(3156.092mil,2130mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1930.52mil|Location2.X=3191.096mil|Location1.Y=1294.996mil|Location2.Y=4180.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1930.52mil|Location2.X=3191.096mil|Location1.Y=1294.996mil|Location2.Y=4180.48mil|Absolute=True">Un-Routed Net Constraint: Net SERVO Between Pad J4-2(1967mil,4144mil) on Multi-Layer And Pad J3-2(3156.092mil,1330mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1781.565mil|Location2.X=3191.096mil|Location1.Y=1296.567mil|Location2.Y=1965.004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1781.565mil|Location2.X=3191.096mil|Location1.Y=1296.567mil|Location2.Y=1965.004mil|Absolute=True">Un-Routed Net Constraint: Net MODE_BTN_1 Between Pad S1-3(1815.092mil,1330.094mil) on Multi-Layer And Pad J3-8(3156.092mil,1930mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2267.472mil|Location2.X=3191.096mil|Location1.Y=1312.567mil|Location2.Y=2065.004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2267.472mil|Location2.X=3191.096mil|Location1.Y=1312.567mil|Location2.Y=2065.004mil|Absolute=True">Un-Routed Net Constraint: Net MODE_BTN_2 Between Pad S2-3(2301mil,1346.094mil) on Multi-Layer And Pad J3-9(3156.092mil,2030mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3396.47mil|Location2.X=5453.772mil|Location1.Y=1068.551mil|Location2.Y=3777.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3396.47mil|Location2.X=5453.772mil|Location1.Y=1068.551mil|Location2.Y=3777.622mil|Absolute=True">Un-Routed Net Constraint: Net NetLED10_2 Between Pad LED10-2(3424.092mil,3750mil) on Multi-Layer And Pad R14-2(5428.118mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1746.378mil|Location2.X=1968.449mil|Location1.Y=1866.378mil|Location2.Y=1933.772mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1746.378mil|Location2.X=1968.449mil|Location1.Y=1866.378mil|Location2.Y=1933.772mil|Absolute=True">Un-Routed Net Constraint: Net NetLED1_2 Between Pad LED1-2(1774mil,1894mil) on Multi-Layer And Pad R3-2(1930mil,1908.118mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2239.378mil|Location2.X=2477.449mil|Location1.Y=1872.378mil|Location2.Y=1939.772mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2239.378mil|Location2.X=2477.449mil|Location1.Y=1872.378mil|Location2.Y=1939.772mil|Absolute=True">Un-Routed Net Constraint: Net NetLED2_2 Between Pad LED2-2(2267mil,1900mil) on Multi-Layer And Pad R4-2(2439mil,1914.118mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2713.378mil|Location2.X=2948.449mil|Location1.Y=1875.378mil|Location2.Y=1935.772mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2713.378mil|Location2.X=2948.449mil|Location1.Y=1875.378mil|Location2.Y=1935.772mil|Absolute=True">Un-Routed Net Constraint: Net NetLED3_2 Between Pad LED3-2(2741mil,1903mil) on Multi-Layer And Pad R5-2(2910mil,1910.118mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1238.47mil|Location2.X=4912.449mil|Location1.Y=1634.465mil|Location2.Y=3786.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1238.47mil|Location2.X=4912.449mil|Location1.Y=1634.465mil|Location2.Y=3786.622mil|Absolute=True">Un-Routed Net Constraint: Net NetLED4_2 Between Pad LED4-2(1266.092mil,3759mil) on Multi-Layer And Pad R8-2(4874mil,1660.118mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1484.565mil|Location2.X=4327.772mil|Location1.Y=1068.551mil|Location2.Y=3785.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1484.565mil|Location2.X=4327.772mil|Location1.Y=1068.551mil|Location2.Y=3785.528mil|Absolute=True">Un-Routed Net Constraint: Net NetLED5_1 Between Pad LED5-1(1518.092mil,3752mil) on Multi-Layer And Pad R9-2(4302.118mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1849.565mil|Location2.X=4552.772mil|Location1.Y=1068.551mil|Location2.Y=3785.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1849.565mil|Location2.X=4552.772mil|Location1.Y=1068.551mil|Location2.Y=3785.528mil|Absolute=True">Un-Routed Net Constraint: Net NetLED6_1 Between Pad LED6-1(1883.092mil,3752mil) on Multi-Layer And Pad R10-2(4527.118mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2311.218mil|Location2.X=4777.772mil|Location1.Y=1068.551mil|Location2.Y=3783.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2311.218mil|Location2.X=4777.772mil|Location1.Y=1068.551mil|Location2.Y=3783.874mil|Absolute=True">Un-Routed Net Constraint: Net NetLED7_2 Between Pad LED7-2(2343.092mil,3752mil) on Multi-Layer And Pad R11-2(4752.118mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2574.565mil|Location2.X=5003.772mil|Location1.Y=1068.551mil|Location2.Y=3785.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2574.565mil|Location2.X=5003.772mil|Location1.Y=1068.551mil|Location2.Y=3785.528mil|Absolute=True">Un-Routed Net Constraint: Net NetLED8_1 Between Pad LED8-1(2608.092mil,3752mil) on Multi-Layer And Pad R12-2(4978.118mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2939.565mil|Location2.X=5228.772mil|Location1.Y=1068.551mil|Location2.Y=3785.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2939.565mil|Location2.X=5228.772mil|Location1.Y=1068.551mil|Location2.Y=3785.528mil|Absolute=True">Un-Routed Net Constraint: Net NetLED9_1 Between Pad LED9-1(2973.092mil,3752mil) on Multi-Layer And Pad R13-2(5203.118mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4391.228mil|Location2.X=4667.535mil|Location1.Y=1068.551mil|Location2.Y=1145.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4391.228mil|Location2.X=4667.535mil|Location1.Y=1068.551mil|Location2.Y=1145.449mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R10-1(4416.882mil,1107mil) on Top Layer [Unplated] And Pad R11-1(4641.882mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4166.228mil|Location2.X=4442.535mil|Location1.Y=1068.551mil|Location2.Y=1145.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4166.228mil|Location2.X=4442.535mil|Location1.Y=1068.551mil|Location2.Y=1145.449mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R9-1(4191.882mil,1107mil) on Top Layer [Unplated] And Pad R10-1(4416.882mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4616.228mil|Location2.X=4893.535mil|Location1.Y=1068.551mil|Location2.Y=1145.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4616.228mil|Location2.X=4893.535mil|Location1.Y=1068.551mil|Location2.Y=1145.449mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R11-1(4641.882mil,1107mil) on Top Layer [Unplated] And Pad R12-1(4867.882mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4842.228mil|Location2.X=5118.535mil|Location1.Y=1068.551mil|Location2.Y=1145.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4842.228mil|Location2.X=5118.535mil|Location1.Y=1068.551mil|Location2.Y=1145.449mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R12-1(4867.882mil,1107mil) on Top Layer [Unplated] And Pad R13-1(5092.882mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4835.551mil|Location2.X=4912.449mil|Location1.Y=1068.551mil|Location2.Y=1575.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4835.551mil|Location2.X=4912.449mil|Location1.Y=1068.551mil|Location2.Y=1575.535mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R12-1(4867.882mil,1107mil) on Top Layer [Unplated] And Pad R8-1(4874mil,1549.882mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5067.228mil|Location2.X=5343.535mil|Location1.Y=1068.551mil|Location2.Y=1145.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5067.228mil|Location2.X=5343.535mil|Location1.Y=1068.551mil|Location2.Y=1145.449mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R13-1(5092.882mil,1107mil) on Top Layer [Unplated] And Pad R14-1(5317.882mil,1107mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.551mil|Location2.X=2477.449mil|Location1.Y=1772.228mil|Location2.Y=1829.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.551mil|Location2.X=2477.449mil|Location1.Y=1772.228mil|Location2.Y=1829.535mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R3-1(1930mil,1797.882mil) on Top Layer [Unplated] And Pad R4-1(2439mil,1803.882mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2400.551mil|Location2.X=2948.449mil|Location1.Y=1774.228mil|Location2.Y=1829.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2400.551mil|Location2.X=2948.449mil|Location1.Y=1774.228mil|Location2.Y=1829.535mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R4-1(2439mil,1803.882mil) on Top Layer [Unplated] And Pad R5-1(2910mil,1799.882mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2871.551mil|Location2.X=3061.63mil|Location1.Y=1774.228mil|Location2.Y=2557.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2871.551mil|Location2.X=3061.63mil|Location1.Y=1774.228mil|Location2.Y=2557.843mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R5-1(2910mil,1799.882mil) on Top Layer [Unplated] And Pad R7-3(3022.197mil,2518.41mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2562.565mil|Location2.X=2864.78mil|Location1.Y=1299.567mil|Location2.Y=2557.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2562.565mil|Location2.X=2864.78mil|Location1.Y=1299.567mil|Location2.Y=2557.843mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad S3-1(2596.092mil,1333.094mil) on Multi-Layer And Pad R7-1(2825.347mil,2518.41mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2982.764mil|Location2.X=3188.795mil|Location1.Y=2478.977mil|Location2.Y=2885.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2982.764mil|Location2.X=3188.795mil|Location1.Y=2478.977mil|Location2.Y=2885.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R7-3(3022.197mil,2518.41mil) on Multi-Layer And Pad R7-5(3097mil,2794mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2658.748mil|Location2.X=3188.795mil|Location1.Y=2702.205mil|Location2.Y=2885.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2658.748mil|Location2.X=3188.795mil|Location1.Y=2702.205mil|Location2.Y=2885.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R7-4(2750.543mil,2794mil) on Multi-Layer And Pad R7-5(3097mil,2794mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1604.399mil|Location2.X=2157.362mil|Location1.Y=1296.567mil|Location2.Y=1379.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1604.399mil|Location2.X=2157.362mil|Location1.Y=1296.567mil|Location2.Y=1379.622mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad S1-1(1637.927mil,1330.094mil) on Multi-Layer And Pad S2-1(2123.835mil,1346.094mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2090.307mil|Location2.X=2629.62mil|Location1.Y=1299.567mil|Location2.Y=1379.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2090.307mil|Location2.X=2629.62mil|Location1.Y=1299.567mil|Location2.Y=1379.622mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad S2-1(2123.835mil,1346.094mil) on Multi-Layer And Pad S3-1(2596.092mil,1333.094mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDL4BC5KOSJMKJOW4AAHCOT51EBI1WFINMOSVHZHBUF2N52NQ1XX0N"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=31.496mil) (Max=100mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1533.005mil|Location2.X=1572.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1533.005mil|Location2.X=1572.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-1(1548mil,2597.701mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.005mil|Location2.X=2172.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.005mil|Location2.X=2172.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-10(2148mil,2910.299mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2033.005mil|Location2.X=2072.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2033.005mil|Location2.X=2072.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-11(2048mil,2910.299mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.005mil|Location2.X=1972.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.005mil|Location2.X=1972.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-12(1948mil,2910.299mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1833.005mil|Location2.X=1872.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1833.005mil|Location2.X=1872.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-13(1848mil,2910.299mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1733.005mil|Location2.X=1772.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1733.005mil|Location2.X=1772.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-14(1748mil,2910.299mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.005mil|Location2.X=1672.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.005mil|Location2.X=1672.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-15(1648mil,2910.299mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1533.005mil|Location2.X=1572.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1533.005mil|Location2.X=1572.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-16(1548mil,2910.299mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.005mil|Location2.X=1672.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.005mil|Location2.X=1672.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-2(1648mil,2597.701mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1733.005mil|Location2.X=1772.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1733.005mil|Location2.X=1772.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-3(1748mil,2597.701mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1833.005mil|Location2.X=1872.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1833.005mil|Location2.X=1872.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-4(1848mil,2597.701mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.005mil|Location2.X=1972.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.005mil|Location2.X=1972.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-5(1948mil,2597.701mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2033.005mil|Location2.X=2072.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2033.005mil|Location2.X=2072.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-6(2048mil,2597.701mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.005mil|Location2.X=2172.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.005mil|Location2.X=2172.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-7(2148mil,2597.701mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2233.005mil|Location2.X=2272.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2233.005mil|Location2.X=2272.65mil|Location1.Y=2582.706mil|Location2.Y=2622.554mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-8(2248mil,2597.701mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2233.005mil|Location2.X=2272.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2233.005mil|Location2.X=2272.65mil|Location1.Y=2895.304mil|Location2.Y=2935.152mil|Absolute=True">Hole Size Constraint: (28.74mil &lt; 31.496mil) Pad IC1-9(2248mil,2910.299mil) on Multi-Layer Actual Hole Size = 28.74mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3309.688mil|Location2.X=3347.55mil|Location1.Y=3735.595mil|Location2.Y=3773.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3309.688mil|Location2.X=3347.55mil|Location1.Y=3735.595mil|Location2.Y=3773.648mil|Absolute=True">Hole Size Constraint: (27.559mil &lt; 31.496mil) Pad LED10-1(3324.092mil,3750mil) on Multi-Layer Actual Hole Size = 27.559mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3409.688mil|Location2.X=3447.55mil|Location1.Y=3735.595mil|Location2.Y=3773.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3409.688mil|Location2.X=3447.55mil|Location1.Y=3735.595mil|Location2.Y=3773.648mil|Absolute=True">Hole Size Constraint: (27.559mil &lt; 31.496mil) Pad LED10-2(3424.092mil,3750mil) on Multi-Layer Actual Hole Size = 27.559mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1659.595mil|Location2.X=1697.458mil|Location1.Y=1879.595mil|Location2.Y=1917.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1659.595mil|Location2.X=1697.458mil|Location1.Y=1879.595mil|Location2.Y=1917.648mil|Absolute=True">Hole Size Constraint: (27.559mil &lt; 31.496mil) Pad LED1-1(1674mil,1894mil) on Multi-Layer Actual Hole Size = 27.559mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1759.595mil|Location2.X=1797.458mil|Location1.Y=1879.595mil|Location2.Y=1917.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1759.595mil|Location2.X=1797.458mil|Location1.Y=1879.595mil|Location2.Y=1917.648mil|Absolute=True">Hole Size Constraint: (27.559mil &lt; 31.496mil) Pad LED1-2(1774mil,1894mil) on Multi-Layer Actual Hole Size = 27.559mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2152.595mil|Location2.X=2190.458mil|Location1.Y=1885.595mil|Location2.Y=1923.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2152.595mil|Location2.X=2190.458mil|Location1.Y=1885.595mil|Location2.Y=1923.648mil|Absolute=True">Hole Size Constraint: (27.559mil &lt; 31.496mil) Pad LED2-1(2167mil,1900mil) on Multi-Layer Actual Hole Size = 27.559mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2252.595mil|Location2.X=2290.458mil|Location1.Y=1885.595mil|Location2.Y=1923.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2252.595mil|Location2.X=2290.458mil|Location1.Y=1885.595mil|Location2.Y=1923.648mil|Absolute=True">Hole Size Constraint: (27.559mil &lt; 31.496mil) Pad LED2-2(2267mil,1900mil) on Multi-Layer Actual Hole Size = 27.559mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2626.595mil|Location2.X=2664.458mil|Location1.Y=1888.595mil|Location2.Y=1926.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2626.595mil|Location2.X=2664.458mil|Location1.Y=1888.595mil|Location2.Y=1926.648mil|Absolute=True">Hole Size Constraint: (27.559mil &lt; 31.496mil) Pad LED3-1(2641mil,1903mil) on Multi-Layer Actual Hole Size = 27.559mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2726.595mil|Location2.X=2764.458mil|Location1.Y=1888.595mil|Location2.Y=1926.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2726.595mil|Location2.X=2764.458mil|Location1.Y=1888.595mil|Location2.Y=1926.648mil|Absolute=True">Hole Size Constraint: (27.559mil &lt; 31.496mil) Pad LED3-2(2741mil,1903mil) on Multi-Layer Actual Hole Size = 27.559mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1151.688mil|Location2.X=1189.55mil|Location1.Y=3744.595mil|Location2.Y=3782.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1151.688mil|Location2.X=1189.55mil|Location1.Y=3744.595mil|Location2.Y=3782.648mil|Absolute=True">Hole Size Constraint: (27.559mil &lt; 31.496mil) Pad LED4-1(1166.092mil,3759mil) on Multi-Layer Actual Hole Size = 27.559mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1251.688mil|Location2.X=1289.55mil|Location1.Y=3744.595mil|Location2.Y=3782.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1251.688mil|Location2.X=1289.55mil|Location1.Y=3744.595mil|Location2.Y=3782.648mil|Absolute=True">Hole Size Constraint: (27.559mil &lt; 31.496mil) Pad LED4-2(1266.092mil,3759mil) on Multi-Layer Actual Hole Size = 27.559mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2691.391mil|Location2.X=2809.696mil|Location1.Y=2734.847mil|Location2.Y=2853.153mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2691.391mil|Location2.X=2809.696mil|Location1.Y=2734.847mil|Location2.Y=2853.153mil|Absolute=True">Hole Size Constraint: (117.055mil &gt; 100mil) Pad R7-4(2750.543mil,2794mil) on Multi-Layer Actual Hole Size = 117.055mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3037.847mil|Location2.X=3156.153mil|Location1.Y=2734.847mil|Location2.Y=2853.153mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3037.847mil|Location2.X=3156.153mil|Location1.Y=2734.847mil|Location2.Y=2853.153mil|Absolute=True">Hole Size Constraint: (117.055mil &gt; 100mil) Pad R7-5(3097mil,2794mil) on Multi-Layer Actual Hole Size = 117.055mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDR3JGTH00LMEOEFPFEVAY0SMVJM1XAVAC4KFXSJGVGHACHIHT4LUD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2819.722mil|Location2.X=2830.972mil|Location1.Y=2475.375mil|Location2.Y=2486.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2819.722mil|Location2.X=2830.972mil|Location1.Y=2475.375mil|Location2.Y=2486.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (3.921mil &lt; 10mil) Between Arc (2825.347mil,2471.165mil) on Top Overlay And Pad R7-1(2825.347mil,2518.41mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [3.921mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2816.504mil|Location2.X=2827.754mil|Location1.Y=2473.463mil|Location2.Y=2484.713mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2816.504mil|Location2.X=2827.754mil|Location1.Y=2473.463mil|Location2.Y=2484.713mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.037mil &lt; 10mil) Between Arc (2825.347mil,2471.165mil) on Top Overlay And Pad R7-1(2825.347mil,2518.41mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [8.037mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3445.244mil|Location2.X=3456.494mil|Location1.Y=3744.375mil|Location2.Y=3755.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3445.244mil|Location2.X=3456.494mil|Location1.Y=3744.375mil|Location2.Y=3755.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.288mil &lt; 10mil) Between Pad LED10-2(3424.092mil,3750mil) on Multi-Layer And Track (3457.951mil,3698.819mil)(3457.951mil,3801.181mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [6.288mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1795.152mil|Location2.X=1806.402mil|Location1.Y=1888.375mil|Location2.Y=1899.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1795.152mil|Location2.X=1806.402mil|Location1.Y=1888.375mil|Location2.Y=1899.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.288mil &lt; 10mil) Between Pad LED1-2(1774mil,1894mil) on Multi-Layer And Track (1807.858mil,1842.819mil)(1807.858mil,1945.181mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [6.288mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2288.152mil|Location2.X=2299.402mil|Location1.Y=1894.375mil|Location2.Y=1905.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2288.152mil|Location2.X=2299.402mil|Location1.Y=1894.375mil|Location2.Y=1905.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.288mil &lt; 10mil) Between Pad LED2-2(2267mil,1900mil) on Multi-Layer And Track (2300.858mil,1848.819mil)(2300.858mil,1951.181mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [6.288mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2762.152mil|Location2.X=2773.402mil|Location1.Y=1897.375mil|Location2.Y=1908.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2762.152mil|Location2.X=2773.402mil|Location1.Y=1897.375mil|Location2.Y=1908.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.288mil &lt; 10mil) Between Pad LED3-2(2741mil,1903mil) on Multi-Layer And Track (2774.858mil,1851.819mil)(2774.858mil,1954.181mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [6.288mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1287.244mil|Location2.X=1298.494mil|Location1.Y=3753.375mil|Location2.Y=3764.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ringl\Documents\Uni Classes\Y3S2\EE318-Project\EE318-Project\PCB\PCB_Project\EE318.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1287.244mil|Location2.X=1298.494mil|Location1.Y=3753.375mil|Location2.Y=3764.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (6.288mil &lt; 10mil) Between Pad LED4-2(1266.092mil,3759mil) on Multi-Layer And Track (1299.951mil,3707.819mil)(1299.951mil,3810.181mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [6.288mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

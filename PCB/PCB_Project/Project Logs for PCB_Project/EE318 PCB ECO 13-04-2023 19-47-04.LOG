@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=LED_MODE_1 Pin=LED1-1
+Removed Pin From Net: NetName=LED_MODE_2 Pin=LED2-1
+Removed Pin From Net: NetName=LED_MODE_3 Pin=LED3-1
+Removed Pin From Net: NetName=GND Pin=R3-1
+Removed Pin From Net: NetName=GND Pin=R4-1
+Removed Pin From Net: NetName=GND Pin=R5-1
+Added Pin To Net: NetName=GND Pin=LED1-2
+Added Pin To Net: NetName=GND Pin=LED2-2
+Added Pin To Net: NetName=GND Pin=LED3-2
+Added Pin To Net: NetName=LED_MODE_1 Pin=R3-2
+Added Pin To Net: NetName=LED_MODE_2 Pin=R4-2
+Added Pin To Net: NetName=LED_MODE_3 Pin=R5-2
+Added Pin To Net: NetName=NetLED1_1 Pin=LED1-1
+Added Pin To Net: NetName=NetLED1_1 Pin=R3-1
+Added Net: Name=NetLED1_1
+Added Pin To Net: NetName=NetLED2_1 Pin=LED2-1
+Added Pin To Net: NetName=NetLED2_1 Pin=R4-1
+Added Net: Name=NetLED2_1
+Added Pin To Net: NetName=NetLED3_1 Pin=LED3-1
+Added Pin To Net: NetName=NetLED3_1 Pin=R5-1
+Added Net: Name=NetLED3_1
+Added Room: Name=EE318

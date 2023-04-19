@@ -1,0 +1,60 @@
+Removed Pin From Net: NetName=GND Pin=R1-1
+Removed Pin From Net: NetName=GND Pin=R2-1
+Removed Pin From Net: NetName=GND Pin=R6-1
+Removed Pin From Net: NetName=GND Pin=R8-1
+Removed Pin From Net: NetName=GND Pin=R9-1
+Removed Pin From Net: NetName=GND Pin=R10-1
+Removed Pin From Net: NetName=GND Pin=R11-1
+Removed Pin From Net: NetName=MUX_CH0 Pin=R12-2
+Removed Pin From Net: NetName=MUX_CH1 Pin=R13-2
+Removed Pin From Net: NetName=MUX_CH2 Pin=R14-2
+Removed Pin From Net: NetName=MUX_CH3 Pin=R15-2
+Removed Pin From Net: NetName=MUX_CH4 Pin=R16-2
+Removed Pin From Net: NetName=MUX_CH5 Pin=R17-2
+Removed Pin From Net: NetName=MUX_CH6 Pin=R18-2
+Removed Member From Class: ClassName=EE318 Member=R12
+Removed Member From Class: ClassName=EE318 Member=R13
+Removed Member From Class: ClassName=EE318 Member=R14
+Removed Member From Class: ClassName=EE318 Member=R15
+Removed Member From Class: ClassName=EE318 Member=R16
+Removed Member From Class: ClassName=EE318 Member=R17
+Removed Member From Class: ClassName=EE318 Member=R18
+Change Component Designator: OldDesignator=R3 NewDesignator=R?
+Change Component Designator: OldDesignator=R4 NewDesignator=R?
+Change Component Designator: OldDesignator=R5 NewDesignator=R?
+Add Component: Footprint Not Found C503BRCNCW0Z0AA2
+Add Component: Footprint Not Found 151051YS04000
+Add Component: Footprint Not Found 151051YS04000
+Add Component: Footprint Not Found C503BGANCB0F0791
+Add Component: Footprint Not Found 151051YS04000
+Add Component: Footprint Not Found 151051YS04000
+Add Component: Footprint Not Found C503BRCNCW0Z0AA2
+Add Pin To Net: Unknown Pin: Pin LED4-2
+Add Pin To Net: Unknown Pin: Pin LED5-1
+Add Pin To Net: Unknown Pin: Pin LED6-1
+Add Pin To Net: Unknown Pin: Pin LED7-2
+Add Pin To Net: Unknown Pin: Pin LED8-1
+Add Pin To Net: Unknown Pin: Pin LED9-1
+Add Pin To Net: Unknown Pin: Pin LED10-2
+Added Pin To Net: NetName=NetLED4_1 Pin=R1-1
+Added Net: Name=NetLED4_1
+Added Pin To Net: NetName=NetLED5_2 Pin=R2-1
+Added Net: Name=NetLED5_2
+Added Pin To Net: NetName=NetLED6_2 Pin=R6-1
+Added Net: Name=NetLED6_2
+Added Pin To Net: NetName=NetLED7_1 Pin=R8-1
+Added Net: Name=NetLED7_1
+Added Pin To Net: NetName=NetLED8_2 Pin=R9-1
+Added Net: Name=NetLED8_2
+Added Pin To Net: NetName=NetLED9_2 Pin=R10-1
+Added Net: Name=NetLED9_2
+Added Pin To Net: NetName=NetLED10_1 Pin=R11-1
+Added Net: Name=NetLED10_1
+Add Class Member: Failed to add class member : Component LED4 RED
+Add Class Member: Failed to add class member : Component LED5 YELLOW
+Add Class Member: Failed to add class member : Component LED6 YELLOW
+Add Class Member: Failed to add class member : Component LED7 GREEN
+Add Class Member: Failed to add class member : Component LED8 YELLOW
+Add Class Member: Failed to add class member : Component LED9 YELLOW
+Add Class Member: Failed to add class member : Component LED10 RED
+Added Room: Name=EE318

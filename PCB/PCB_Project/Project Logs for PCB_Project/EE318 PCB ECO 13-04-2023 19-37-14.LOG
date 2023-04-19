@@ -1,0 +1,27 @@
+Added Component: Designator=IC?(DIP794W53P254L1930H508Q16N)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "CD4051BE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/cd4051be/texas-instruments?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.ti.com/lit/ds/symlink/cd4051b.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "5.08mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CD4051BE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "595-CD4051BE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/CD4051BE?qs=q2XTDbzbm6DxulBsMcV7tA%3D%3D"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=MUX_CH4 Pin=IC?-1
+Added Pin To Net: NetName=MUX_CH6 Pin=IC?-2
+Added Pin To Net: NetName=+5 Pin=IC?-3
+Added Pin To Net: NetName=MUX_CH7 Pin=IC?-4
+Added Pin To Net: NetName=MUX_CH5 Pin=IC?-5
+Added Pin To Net: NetName=MUX_INH Pin=IC?-6
+Added Pin To Net: NetName=GND Pin=IC?-7
+Added Pin To Net: NetName=GND Pin=IC?-8
+Added Pin To Net: NetName=MUX_C Pin=IC?-9
+Added Pin To Net: NetName=MUX_B Pin=IC?-10
+Added Pin To Net: NetName=MUX_A Pin=IC?-11
+Added Pin To Net: NetName=MUX_CH3 Pin=IC?-12
+Added Pin To Net: NetName=MUX_CH0 Pin=IC?-13
+Added Pin To Net: NetName=MUX_CH1 Pin=IC?-14
+Added Pin To Net: NetName=MUX_CH2 Pin=IC?-15
+Added Pin To Net: NetName=+5 Pin=IC?-16
+Added Member To Class: ClassName=EE318 Member=Component IC? CD4051BE
+Added Room: Name=EE318

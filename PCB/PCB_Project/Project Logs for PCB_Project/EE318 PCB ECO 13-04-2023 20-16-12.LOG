@@ -1,0 +1,16 @@
+Change Component Designator: OldDesignator=R? NewDesignator=R12
+Change Component Designator: OldDesignator=R? NewDesignator=R13
+Change Component Designator: OldDesignator=R? NewDesignator=R14
+Change Component Designator: OldDesignator=R? NewDesignator=R15
+Change Component Designator: OldDesignator=R? NewDesignator=R16
+Change Component Designator: OldDesignator=R? NewDesignator=R17
+Change Component Designator: OldDesignator=R? NewDesignator=R18
+Add Component: Footprint Not Found RHDR2W60P0X254_1X2_508X254X700P
+Add Class Member: Failed to add class member : Component J6 801-87-002-10-001101
+Added Member To Class: ClassName=EE318 Member=Component R13 220R
+Added Member To Class: ClassName=EE318 Member=Component R14 220R
+Added Member To Class: ClassName=EE318 Member=Component R15 220R
+Added Member To Class: ClassName=EE318 Member=Component R16 220R
+Added Member To Class: ClassName=EE318 Member=Component R17 220R
+Added Member To Class: ClassName=EE318 Member=Component R18 220R
+Added Room: Name=EE318

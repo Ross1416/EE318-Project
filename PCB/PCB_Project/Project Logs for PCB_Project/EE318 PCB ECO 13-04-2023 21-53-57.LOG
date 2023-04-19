@@ -1,0 +1,31 @@
+Add Component: Footprint Not Found C503BRCNCW0Z0AA2
+Add Component: Footprint Not Found 151051YS04000
+Add Component: Footprint Not Found 151051YS04000
+Add Component: Footprint Not Found C503BGANCB0F0791
+Add Component: Footprint Not Found 151051YS04000
+Add Component: Footprint Not Found 151051YS04000
+Add Component: Footprint Not Found C503BRCNCW0Z0AA2
+Add Pin To Net: Unknown Pin: Pin LED4-1
+Add Pin To Net: Unknown Pin: Pin LED4-2
+Add Pin To Net: Unknown Pin: Pin LED5-1
+Add Pin To Net: Unknown Pin: Pin LED5-2
+Add Pin To Net: Unknown Pin: Pin LED6-1
+Add Pin To Net: Unknown Pin: Pin LED6-2
+Add Pin To Net: Unknown Pin: Pin LED7-1
+Add Pin To Net: Unknown Pin: Pin LED7-2
+Add Pin To Net: Unknown Pin: Pin LED8-1
+Add Pin To Net: Unknown Pin: Pin LED8-2
+Add Pin To Net: Unknown Pin: Pin LED9-1
+Add Pin To Net: Unknown Pin: Pin LED9-2
+Add Pin To Net: Unknown Pin: Pin LED10-1
+Add Pin To Net: Unknown Pin: Pin LED10-2
+Add Class Member: Failed to add class member : Component LED4 RED
+Add Class Member: Failed to add class member : Component LED5 YELLOW
+Add Class Member: Failed to add class member : Component LED6 YELLOW
+Add Class Member: Failed to add class member : Component LED7 GREEN
+Add Class Member: Failed to add class member : Component LED8 YELLOW
+Add Class Member: Failed to add class member : Component LED9 YELLOW
+Add Class Member: Failed to add class member : Component LED10 RED
+Added Member To Class: ClassName=EE318 Member=Component R? 220R
+Added Member To Class: ClassName=EE318 Member=Component R? 220R
+Added Room: Name=EE318
