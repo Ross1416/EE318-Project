@@ -1,87 +1,8 @@
+#include <config.h>
 #include <msp430.h>
 #include <driverlib.h>
 
 
-// SERVO MOTOR VARIABLES
-#define SERVO_MOTOR_PORT GPIO_PORT_P1
-#define SERVO_MOTOR_PIN GPIO_PIN7
-
-unsigned int current_angle = 45;
-unsigned int angle_step_size = 5;
-
-const int servo_lower_limit_count = 18; // 0 degrees
-const int servo_upper_limit_count = 74; // 180 degrees
-
-const unsigned int period = 640; // 50 Hz
-volatile unsigned int pulse_width=18; // initially 0 degrees
-
-// POTENTIOMETER VALUES
-#define POT_MOTOR_PORT GPIO_PORT_P8
-#define POT_MOTOR_PIN GPIO_PIN1
-
-volatile unsigned int potValue=0;
-unsigned int potAngle=0;
-
-// ADC VARIABLES
-unsigned int adc[10]={0};
-unsigned int adc_count=9;
-unsigned int adcTest=0;
-
-// CONFIGURATION VARIABLES
-enum CONFIGURATION
-{
-  FIXED,
-  MANUAL,
-  TRACKING
-};
-
-enum CONFIGURATION config = FIXED;
-
-// SELECT BUTTON VARIBLES
-#define FIXED_BTN_PORT GPIO_PORT_P1
-#define FIXED_BTN_PIN GPIO_PIN3
-#define FIXED_BTN_INT P1IV_P1IFG3
-
-#define MANUAL_BTN_PORT GPIO_PORT_P1
-#define MANUAL_BTN_PIN GPIO_PIN4
-#define MANUAL_BTN_INT P1IV_P1IFG4
-
-#define TRACKING_BTN_PORT GPIO_PORT_P1
-#define TRACKING_BTN_PIN GPIO_PIN5
-#define TRACKING_BTN_INT P1IV_P1IFG5
-
-// SELECT LED VARIABLES
-#define FIXED_LED_PORT GPIO_PORT_P2
-#define FIXED_LED_PIN GPIO_PIN5
-
-#define MANUAL_LED_PORT GPIO_PORT_P8
-#define MANUAL_LED_PIN GPIO_PIN2
-
-#define TRACKING_LED_PORT GPIO_PORT_P8
-#define TRACKING_LED_PIN GPIO_PIN3
-
-// LDR VARIABLES
-#define LDR_L_PORT GPIO_PORT_P8
-#define LDR_L_PIN GPIO_PIN0
-
-#define LDR_R_PORT GPIO_PORT_P1
-#define LDR_R_PIN GPIO_PIN6
-
-unsigned int ldr_r_val=0;
-unsigned int ldr_l_val=0;
-
-// MUX VARIABLES
-#define MUX_A_PORT GPIO_PORT_P5
-#define MUX_A_PIN GPIO_PIN0
-
-#define MUX_B_PORT GPIO_PORT_P5
-#define MUX_B_PIN GPIO_PIN2
-
-#define MUX_C_PORT GPIO_PORT_P5
-#define MUX_C_PIN GPIO_PIN3
-
-#define MUX_INH_PORT GPIO_PORT_P5
-#define MUX_INH_PIN GPIO_PIN1
 
 // ADC INTERRUPT
 #pragma vector=ADC_VECTOR
@@ -90,12 +11,12 @@ __interrupt void ADC_ISR(void)
   switch(__even_in_range(ADCIV,ADCIV_ADCIFG))
   {
     case ADCIV_ADCIFG:
-//        adc[adc_count]=ADCMEM0;
-//        if (adc_count <= 0)
-//            adc_count = 9;
-//        else
-//            adc_count--;
-      potValue=ADCMEM0;
+        adc[adc_count]=ADCMEM0;
+        if (adc_count <= 0)
+            adc_count = 6;
+        else
+            adc_count--;
+//      potValue=ADCMEM0;
       ADCIFG &= ~0x01;
 //      __bis_SR_register_on_exit(LPM0_bits); // Low power mode select? - not low power mode?
       break;
@@ -112,6 +33,16 @@ __interrupt void P1_ISR(void)
     config=FIXED;
     GPIO_clearInterrupt(FIXED_BTN_PORT, FIXED_LED_PIN);
     break;
+  }
+}
+
+
+// PORT2 INTERRUPT
+#pragma vector = PORT2_VECTOR
+__interrupt void P2_ISR(void)
+{
+  switch(P2IV)
+  {
   case MANUAL_BTN_INT:
     config=MANUAL;
     GPIO_clearInterrupt(MANUAL_BTN_PORT, MANUAL_BTN_PIN);
@@ -124,7 +55,6 @@ __interrupt void P1_ISR(void)
     break;
   }
 }
-
 
 
 
@@ -191,20 +121,17 @@ void init_MUX(void)
 void init_POT_ADC(void)
 {
     // makes no damn difference
-  SYSCFG2 |= ADCPCTL9 | ADCPCTL8 | ADCPCTL6; // Enable A9,A8,A6;
-  SYSCFG2 &= ~ADCPCTL7;
-//    SYSCFG2 |= 0x0340;
-//    SYSCFG2 |= 0x0000;
+  SYSCFG2 |= ADCPCTL6 | ADCPCTL5 | ADCPCTL4; // Enable A9,A8,A6;
+
   ADCCTL0 |= ADCON | ADCSHT_2;// | ADCMSC; //Turn on ADC & setting sample and hold time as 16 ADCCLK cycles? set up multiple sample and conversion - could remove if not sampling anything for fixed
   ADCCTL1 |= ADCSHP; // sets the source of the sampling signal (SAMPCON) to the sampling timer? - or sets it to pulse sampling mode?
   ADCCTL2 |= ADCRES; //Set 10 bit resolution
 
-  ADCMCTL0 |= ADCINCH_9; // Setting reference and input channel select to A9
-
+  ADCMCTL0 |= ADCINCH_6; // Setting reference and input channel select to A9
 
   ADCCTL1 |= ADCCONSEQ_1;  //ADC conversion sequence mode select - 10b = Repeat-sequence-of-channels
 
-  ADCCTL1 |= ADCSSEL_2;
+//  ADCCTL1 |= ADCSSEL_2;
 //  ADCCTL2 |= ADCSR;
 
 //  ADCCTL1 |= ADCSSEL_2 | ADCDIV_0;//aclk, divive by 1
@@ -214,7 +141,7 @@ void init_POT_ADC(void)
 //  ADCCTL2 |= ADCPDIV_2; //predivide by 64 => 62.5Hz clock signal?
 
   ADCIFG &= ~0x01; // clear interrupt - why this bit?
-//  ADCIE |= ADCIE0; // Enable interrupt;
+  ADCIE |= ADCIE0; // Enable interrupt;
 
 }
 
@@ -260,7 +187,7 @@ void update_servo()
 
 int main(void)
  {
-    config = MANUAL;
+    config = FIXED;
     WDTCTL = WDTPW | WDTHOLD;               // Stop watchdog timer
 //    CSCTL1 |= DCORSEL_5; // made no difference
     // Disable the GPIO power-on default high-impedance mode
@@ -277,7 +204,7 @@ int main(void)
     init_MUX();
 
     ADCCTL0 |= ADCENC | ADCSC;// | ADCMSC; // enable conversion and start conversion
-
+//    ADCCTL0 |= ADCENC | ADCSC | ADCMSC;
     while(1)
     {
 
@@ -298,7 +225,7 @@ int main(void)
         break;
       case MANUAL:
           // this seems to sort of work but it adds a slight delay
-          ADCCTL0 |= ADCENC | ADCSC;// | ADCMSC;
+
 //          if (adcTest > 20)
 //          {
 //              ADCCTL0 |= ADCSC; // start conversion
@@ -318,9 +245,10 @@ int main(void)
 //          }
 //          while (ADCIFG0 == 0);
 //        ADCCTL0 |= ADCSC; // start conversio
-//        potValue=adc[9];
+        ADCCTL0 |= ADCENC | ADCSC;
+        potValue=adc[6];
         potAngle = map(potValue,0,1023,0,180);
-        current_angle=180-potAngle;
+        current_angle=potAngle;//180-potAngle;
         GPIO_setOutputHighOnPin(MANUAL_LED_PORT, MANUAL_LED_PIN);
         GPIO_setOutputLowOnPin(FIXED_LED_PORT, FIXED_LED_PIN);
         GPIO_setOutputLowOnPin(TRACKING_LED_PORT, TRACKING_LED_PIN);
