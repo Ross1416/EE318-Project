@@ -5,6 +5,17 @@
 // INIT VARIABLES
 bool switched_mode;
 
+// LDR Variables
+int ldr_diff = 0;
+unsigned int ldr_r_val=0;
+unsigned int ldr_l_val=0;
+int ldr_r_offset = 0;
+int ldr_l_offset = 0;
+
+// POTENTIOMETER VARIABLES
+volatile unsigned int potValue=0;
+unsigned int potAngle=0;
+
 
 // ADC INTERRUPT
 #pragma vector=ADC_VECTOR
@@ -118,12 +129,42 @@ void init_MUX(void)
     GPIO_setOutputLowOnPin(MUX_INH_PORT, MUX_INH_PIN);
 }
 
-void select_led(unsigned int led) {
-    GPIO_setOutputLowOnPin(MUX_A_PORT, MUX_A_PIN);
-    GPIO_setOutputLowOnPin(MUX_B_PORT, MUX_B_PORT);
-    GPIO_setOutputLowOnPin(MUX_C_PORT, MUX_C_PORT);
+void mux_select(bool MUXC, bool MUXB, bool MUXA) {
+    MUXA? GPIO_setOutputHighOnPin(MUX_A_PORT, MUX_A_PIN) : GPIO_setOutputLowOnPin(MUX_A_PORT, MUX_A_PIN);
+    MUXB? GPIO_setOutputHighOnPin(MUX_B_PORT, MUX_B_PIN) : GPIO_setOutputLowOnPin(MUX_B_PORT, MUX_B_PIN);
+    MUXC? GPIO_setOutputHighOnPin(MUX_C_PORT, MUX_C_PIN) : GPIO_setOutputLowOnPin(MUX_C_PORT, MUX_C_PIN);
 }
 
+void update_efficiency_indicator(int diff)
+{
+    if (diff>0){
+        if (diff<10)
+            mux_select(false,true,true);
+        else
+            if (diff<20)
+                mux_select(false,true,false);
+            else
+                if (diff<30)
+                    mux_select(false,false,true);
+                else
+                    mux_select(false,false,false);
+
+    }
+    else{
+        if (abs(diff)<10)
+            mux_select(false,true,true);
+        else
+            if (abs(diff)<20)
+                mux_select(true,false,false);
+            else
+                if (abs(diff)<30)
+                    mux_select(true,false,true);
+                else
+                    mux_select(true,true,false);
+    }
+
+
+}
 
 
 // SETUP ADC FOR MEASURING POTENTIOMETER
@@ -138,7 +179,7 @@ void init_ADC(void)
 
   ADCMCTL0 |= ADCINCH_6; // Setting reference and input channel select to A9
 
-  ADCCTL1 |= ADCCONSEQ_1;  //ADC conversion sequence mode select - 10b = Repeat-sequence-of-channels
+  ADCCTL1 |= ADCCONSEQ_1;  //ADC conversion sequence mode select: Sequence-of-channels
 
 //  ADCCTL1 |= ADCSSEL_2;
 //  ADCCTL2 |= ADCSR;
@@ -195,7 +236,8 @@ void update_servo()
 
 
 int main(void)
-    {
+
+{
     config = FIXED;
     switched_mode = true;
     WDTCTL = WDTPW | WDTHOLD;               // Stop watchdog timer
@@ -216,10 +258,53 @@ int main(void)
 
     ADCCTL0 |= ADCENC | ADCSC;// | ADCMSC; // enable conversion and start conversion
 //    ADCCTL0 |= ADCENC | ADCSC | ADCMSC;
+
+//    bool n,m,o;
+//    n = false;
+//      m = false;
+//      o = false;
+//    mux_select(n,m,o);
+//      __delay_cycles(1000000);
+//      n = false;
+//      m = false;
+//      o = true;
+//      mux_select(n,m,o);
+//      __delay_cycles(1000000);
+//      n = false;
+//      m = true;
+//      o = false;
+//      mux_select(n,m,o);
+//      __delay_cycles(1000000);
+//      n = false;
+//      m = true;
+//      o = true;
+//      mux_select(n,m,o);
+//      __delay_cycles(1000000);
+//      n = true;
+//      m = false;
+//      o = false;
+//      mux_select(n,m,o);
+//      __delay_cycles(1000000);
+//      n = true;
+//      m = false;
+//      o = true;
+//      mux_select(n,m,o);
+//      __delay_cycles(1000000);
+//      n = true;
+//      m = true;
+//      o = false;
+//      mux_select(n,m,o);
+//      __delay_cycles(1000000);
+//      n = true;
+//      m = true;
+//      o = true;
+//      mux_select(n,m,o);
+//      __delay_cycles(1000000);
+
     while(1)
     {
 
-      switch(config)
+    switch(config)
       {
       case FIXED:
           if (switched_mode)
@@ -242,7 +327,7 @@ int main(void)
           if (switched_mode)
           {
               // Enable ADC
-              ADCCTL0 |= ADCENC;
+              ADCCTL0 |= ADCENC | ADCSC;
 
               // Updated Mode LEDs
               GPIO_setOutputHighOnPin(MANUAL_LED_PORT, MANUAL_LED_PIN);
@@ -252,11 +337,12 @@ int main(void)
               switched_mode = false;
           }
           else{
+              ADCCTL0 |= ADCSC;
               // Update servo with respect to potentiometer
               //         | ADCSC;
               potValue=adc[6];
               potAngle = map(potValue,0,1023,0,180);
-              current_angle=potAngle;//180-potAngle;
+              current_angle=180-potAngle;
 
               update_servo();
           }
@@ -266,17 +352,27 @@ int main(void)
       case TRACKING:
           if (switched_mode)
           {
+//              ADCCTL0 |= ADCENC | ADCSC;
               // Update servo with respect to potentiometer
               GPIO_setOutputHighOnPin(TRACKING_LED_PORT, TRACKING_LED_PIN);
               GPIO_setOutputLowOnPin(FIXED_LED_PORT, FIXED_LED_PIN);
               GPIO_setOutputLowOnPin(MANUAL_LED_PORT, MANUAL_LED_PIN);
+
+              switched_mode = false;
           }
           else{
+              ADCCTL0 |= ADCSC;
+              ldr_r_val=adc[5];
+              ldr_l_val=adc[4];
+              ldr_diff = ldr_r_val-ldr_l_val;
+
+              update_efficiency_indicator(ldr_diff);
 
           }
 //        ADCCTL0 |= ADCSC; // start conversion
-//        ldr_r_val=adc[8];
-//        ldr_l_val=adc[6];
+
+
+
 
         break;
       }

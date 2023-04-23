@@ -12,7 +12,7 @@
 #define SERVO_MOTOR_PORT GPIO_PORT_P1
 #define SERVO_MOTOR_PIN GPIO_PIN7
 
-unsigned int current_angle = 45;
+unsigned int current_angle = 90;
 unsigned int angle_step_size = 5;
 
 const int servo_lower_limit_count = 18; // 0 degrees
@@ -21,12 +21,11 @@ const int servo_upper_limit_count = 74; // 180 degrees
 const unsigned int period = 640; // 50 Hz
 volatile unsigned int pulse_width=18; // initially 0 degrees
 
-// POTENTIOMETER VALUES
-#define POT_MOTOR_PORT GPIO_PORT_P1
-#define POT_MOTOR_PIN GPIO_PIN6
+//// POTENTIOMETER VALUES
+//#define POT_PORT GPIO_PORT_P1
+//#define POT_PIN GPIO_PIN6
 
-volatile unsigned int potValue=0;
-unsigned int potAngle=0;
+
 
 // ADC VARIABLES
 unsigned int adc[7]={0};
@@ -73,21 +72,18 @@ enum CONFIGURATION config = FIXED;
 #define LDR_R_PORT GPIO_PORT_P1
 #define LDR_R_PIN GPIO_PIN5
 
-unsigned int ldr_r_val=0;
-unsigned int ldr_l_val=0;
-
 // MUX VARIABLES
-#define MUX_A_PORT GPIO_PORT_P5
-#define MUX_A_PIN GPIO_PIN0
+#define MUX_A_PORT GPIO_PORT_P8
+#define MUX_A_PIN GPIO_PIN3
 
-#define MUX_B_PORT GPIO_PORT_P5
+#define MUX_B_PORT GPIO_PORT_P8
 #define MUX_B_PIN GPIO_PIN2
 
 #define MUX_C_PORT GPIO_PORT_P5
-#define MUX_C_PIN GPIO_PIN3
+#define MUX_C_PIN GPIO_PIN1
 
-#define MUX_INH_PORT GPIO_PORT_P5
-#define MUX_INH_PIN GPIO_PIN1
+#define MUX_INH_PORT GPIO_PORT_P8
+#define MUX_INH_PIN GPIO_PIN0
 
 
 
