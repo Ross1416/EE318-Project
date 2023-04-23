@@ -138,26 +138,26 @@ void mux_select(bool MUXC, bool MUXB, bool MUXA) {
 void update_efficiency_indicator(int diff)
 {
     if (diff>0){
-        if (diff<10)
+        if (diff<LDR_INDICATOR_TOLERANCES[0])
             mux_select(false,true,true);
         else
-            if (diff<20)
+            if (diff<LDR_INDICATOR_TOLERANCES[1])
                 mux_select(false,true,false);
             else
-                if (diff<30)
+                if (diff<LDR_INDICATOR_TOLERANCES[2])
                     mux_select(false,false,true);
                 else
                     mux_select(false,false,false);
 
     }
     else{
-        if (abs(diff)<10)
+        if (abs(diff)<LDR_INDICATOR_TOLERANCES[0])
             mux_select(false,true,true);
         else
-            if (abs(diff)<20)
+            if (abs(diff)<LDR_INDICATOR_TOLERANCES[1])
                 mux_select(true,false,false);
             else
-                if (abs(diff)<30)
+                if (abs(diff)<LDR_INDICATOR_TOLERANCES[2])
                     mux_select(true,false,true);
                 else
                     mux_select(true,true,false);
@@ -259,125 +259,90 @@ int main(void)
     ADCCTL0 |= ADCENC | ADCSC;// | ADCMSC; // enable conversion and start conversion
 //    ADCCTL0 |= ADCENC | ADCSC | ADCMSC;
 
-//    bool n,m,o;
-//    n = false;
-//      m = false;
-//      o = false;
-//    mux_select(n,m,o);
-//      __delay_cycles(1000000);
-//      n = false;
-//      m = false;
-//      o = true;
-//      mux_select(n,m,o);
-//      __delay_cycles(1000000);
-//      n = false;
-//      m = true;
-//      o = false;
-//      mux_select(n,m,o);
-//      __delay_cycles(1000000);
-//      n = false;
-//      m = true;
-//      o = true;
-//      mux_select(n,m,o);
-//      __delay_cycles(1000000);
-//      n = true;
-//      m = false;
-//      o = false;
-//      mux_select(n,m,o);
-//      __delay_cycles(1000000);
-//      n = true;
-//      m = false;
-//      o = true;
-//      mux_select(n,m,o);
-//      __delay_cycles(1000000);
-//      n = true;
-//      m = true;
-//      o = false;
-//      mux_select(n,m,o);
-//      __delay_cycles(1000000);
-//      n = true;
-//      m = true;
-//      o = true;
-//      mux_select(n,m,o);
-//      __delay_cycles(1000000);
+
 
     while(1)
     {
 
-    switch(config)
-      {
-      case FIXED:
-          if (switched_mode)
+        ADCCTL0 |= ADCSC;
+
+
+        switch(config)
           {
-              // Update servo to 90 degress
-              current_angle=91;
-              update_servo();
-              // Disable ADC
-              ADCCTL0 &= ~(ADCENC);
+          case FIXED:
+              if (switched_mode)
+              {
+                  // Update servo to 90 degress
+                  current_angle=91;
+                  update_servo();
+    //              // Disable ADC
+    //              ADCCTL0 &= ~(ADCENC);
 
-              // Update Mode LEDs
-              GPIO_setOutputHighOnPin(FIXED_LED_PORT, FIXED_LED_PIN);
-              GPIO_setOutputLowOnPin(MANUAL_LED_PORT, MANUAL_LED_PIN);
-              GPIO_setOutputLowOnPin(TRACKING_LED_PORT, TRACKING_LED_PIN);
+                  // Update Mode LEDs
+                  GPIO_setOutputHighOnPin(FIXED_LED_PORT, FIXED_LED_PIN);
+                  GPIO_setOutputLowOnPin(MANUAL_LED_PORT, MANUAL_LED_PIN);
+                  GPIO_setOutputLowOnPin(TRACKING_LED_PORT, TRACKING_LED_PIN);
 
-              switched_mode = false;
+                  switched_mode = false;
+              }
+            break;
+          case MANUAL:
+              if (switched_mode)
+              {
+    //              // Enable ADC
+    //              ADCCTL0 |= ADCENC | ADCSC;
+
+                  // Updated Mode LEDs
+                  GPIO_setOutputHighOnPin(MANUAL_LED_PORT, MANUAL_LED_PIN);
+                  GPIO_setOutputLowOnPin(FIXED_LED_PORT, FIXED_LED_PIN);
+                  GPIO_setOutputLowOnPin(TRACKING_LED_PORT, TRACKING_LED_PIN);
+
+                  switched_mode = false;
+              }
+              else{
+    //              ADCCTL0 |= ADCSC;
+                  // Update servo with respect to potentiometer
+                  //         | ADCSC;
+
+                  potAngle = map(potValue,0,1023,0,180);
+                  current_angle=180-potAngle;
+
+                  update_servo();
+              }
+
+
+            break;
+          case TRACKING:
+              if (switched_mode)
+              {
+    //              ADCCTL0 |= ADCENC | ADCSC;
+                  // Update servo with respect to potentiometer
+                  GPIO_setOutputHighOnPin(TRACKING_LED_PORT, TRACKING_LED_PIN);
+                  GPIO_setOutputLowOnPin(FIXED_LED_PORT, FIXED_LED_PIN);
+                  GPIO_setOutputLowOnPin(MANUAL_LED_PORT, MANUAL_LED_PIN);
+
+                  switched_mode = false;
+              }
+              else{
+    //              ADCCTL0 |= ADCSC;
+    //              ldr_r_val=adc[5];
+    //              ldr_l_val=adc[4];
+    //              ldr_diff = ldr_r_val-ldr_l_val;
+    //
+    //              update_efficiency_indicator(ldr_diff);
+
+//              }
+    //        ADCCTL0 |= ADCSC; // start conversion
+
+
+            break;
           }
-        break;
-      case MANUAL:
-          if (switched_mode)
-          {
-              // Enable ADC
-              ADCCTL0 |= ADCENC | ADCSC;
 
-              // Updated Mode LEDs
-              GPIO_setOutputHighOnPin(MANUAL_LED_PORT, MANUAL_LED_PIN);
-              GPIO_setOutputLowOnPin(FIXED_LED_PORT, FIXED_LED_PIN);
-              GPIO_setOutputLowOnPin(TRACKING_LED_PORT, TRACKING_LED_PIN);
-
-              switched_mode = false;
-          }
-          else{
-              ADCCTL0 |= ADCSC;
-              // Update servo with respect to potentiometer
-              //         | ADCSC;
-              potValue=adc[6];
-              potAngle = map(potValue,0,1023,0,180);
-              current_angle=180-potAngle;
-
-              update_servo();
-          }
-
-
-        break;
-      case TRACKING:
-          if (switched_mode)
-          {
-//              ADCCTL0 |= ADCENC | ADCSC;
-              // Update servo with respect to potentiometer
-              GPIO_setOutputHighOnPin(TRACKING_LED_PORT, TRACKING_LED_PIN);
-              GPIO_setOutputLowOnPin(FIXED_LED_PORT, FIXED_LED_PIN);
-              GPIO_setOutputLowOnPin(MANUAL_LED_PORT, MANUAL_LED_PIN);
-
-              switched_mode = false;
-          }
-          else{
-              ADCCTL0 |= ADCSC;
-              ldr_r_val=adc[5];
-              ldr_l_val=adc[4];
-              ldr_diff = ldr_r_val-ldr_l_val;
-
-              update_efficiency_indicator(ldr_diff);
-
-          }
-//        ADCCTL0 |= ADCSC; // start conversion
-
-
-
-
-        break;
-      }
-
-
+        potValue=adc[6];
+        ldr_r_val=adc[5];
+        ldr_l_val=adc[4];
+        ldr_diff = ldr_r_val-ldr_l_val;
+        update_efficiency_indicator(ldr_diff);
 
     }
 }
