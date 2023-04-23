@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=MUX_C Pin=J1-7
+Removed Pin From Net: NetName=MUX_A Pin=J1-10
+Added Pin To Net: NetName=MUX_A Pin=J1-7
+Added Pin To Net: NetName=MUX_C Pin=J1-10
+Added Room: Name=EE318

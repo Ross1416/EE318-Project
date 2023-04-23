@@ -1,0 +1,66 @@
+Removed Pin From Net: NetName=LED_MODE_1 Pin=J1-8
+Removed Pin From Net: NetName=LED_MODE_2 Pin=J1-9
+Removed Pin From Net: NetName=LED_MODE_3 Pin=J1-10
+Removed Pin From Net: NetName=MUX_INH Pin=J3-3
+Removed Pin From Net: NetName=MUX_A Pin=J3-4
+Removed Pin From Net: NetName=MUX_B Pin=J3-6
+Removed Pin From Net: NetName=MUX_C Pin=J3-7
+Removed Pin From Net: NetName=MODE_BTN_1 Pin=J3-8
+Removed Pin From Net: NetName=MODE_BTN_2 Pin=J3-9
+Removed Pin From Net: NetName=MODE_BTN_3 Pin=J3-10
+Added Component: Designator=R12(RESC3116X65N)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.bourns.com/docs/Product-Datasheets/CRS-Q.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "0.65mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Bourns"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CRS1206QFX-1002ELF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "652-CRS1206QFX-1002E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Bourns/CRS1206QFX-1002ELF?qs=8Wlm6%252BaMh8QKdvkWTPthtg%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=R13(RESC3116X65N)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.bourns.com/docs/Product-Datasheets/CRS-Q.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "0.65mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Bourns"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CRS1206QFX-1002ELF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "652-CRS1206QFX-1002E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Bourns/CRS1206QFX-1002ELF?qs=8Wlm6%252BaMh8QKdvkWTPthtg%3D%3D"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=MODE_BTN_1 Pin=J1-3
+Added Pin To Net: NetName=MODE_BTN_2 Pin=J1-5
+Added Pin To Net: NetName=MUX_INH Pin=J1-6
+Added Pin To Net: NetName=MUX_C Pin=J1-7
+Added Pin To Net: NetName=MODE_BTN_3 Pin=J1-8
+Added Pin To Net: NetName=MUX_B Pin=J1-9
+Added Pin To Net: NetName=MUX_A Pin=J1-10
+Added Pin To Net: NetName=SERVO Pin=J3-3
+Added Pin To Net: NetName=LED_MODE_1 Pin=J3-4
+Added Pin To Net: NetName=LED_MODE_2 Pin=J3-6
+Added Pin To Net: NetName=LED_MODE_3 Pin=J3-7
+Added Pin To Net: NetName=GND Pin=J5-2
+Added Pin To Net: NetName=+3.3 Pin=J6-1
+Added Pin To Net: NetName=GND Pin=J6-4
+Added Pin To Net: NetName=GND Pin=R13-1
+Added Pin To Net: NetName=LDR1 Pin=J3-9
+Added Pin To Net: NetName=LDR1 Pin=J6-2
+Added Net: Name=LDR1
+Added Pin To Net: NetName=LDR2 Pin=J3-10
+Added Pin To Net: NetName=LDR2 Pin=J6-3
+Added Net: Name=LDR2
+Added Pin To Net: NetName=NetJ5_1 Pin=J5-1
+Added Pin To Net: NetName=NetJ5_1 Pin=R12-2
+Added Net: Name=NetJ5_1
+Added Pin To Net: NetName=PWR_MEASURE Pin=J3-8
+Added Pin To Net: NetName=PWR_MEASURE Pin=R12-1
+Added Pin To Net: NetName=PWR_MEASURE Pin=R13-2
+Added Net: Name=PWR_MEASURE
+Added Member To Class: ClassName=EE318 Member=Component J5 10129379-902001BLF
+Added Member To Class: ClassName=EE318 Member=Component R1 220R
+Added Member To Class: ClassName=EE318 Member=Component R2 220R
+Added Member To Class: ClassName=EE318 Member=Component R4 PTV09A-4225F-B103
+Added Member To Class: ClassName=EE318 Member=Component R5 220R
+Added Member To Class: ClassName=EE318 Member=Component R6 220R
+Added Member To Class: ClassName=EE318 Member=Component R7 220R
+Added Member To Class: ClassName=EE318 Member=Component R12 1.8k
+Added Member To Class: ClassName=EE318 Member=Component R13 1.8k
+Added Room: Name=EE318

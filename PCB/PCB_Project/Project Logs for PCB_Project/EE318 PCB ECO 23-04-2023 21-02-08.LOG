@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=LED_MODE_2 Pin=J3-6
+Removed Pin From Net: NetName=LED_MODE_3 Pin=J3-7
+Added Pin To Net: NetName=LED_MODE_3 Pin=J3-6
+Added Pin To Net: NetName=LED_MODE_2 Pin=J3-7
+Added Room: Name=EE318

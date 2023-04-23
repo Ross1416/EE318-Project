@@ -1,0 +1,22 @@
+Added Pin To Net: NetName=MUX_LED0 Pin=IC1-5
+Added Pin To Net: NetName=MUX_LED0 Pin=R5-2
+Added Net: Name=MUX_LED0
+Added Pin To Net: NetName=MUX_LED1 Pin=IC1-4
+Added Pin To Net: NetName=MUX_LED1 Pin=R6-2
+Added Net: Name=MUX_LED1
+Added Pin To Net: NetName=MUX_LED2 Pin=IC1-2
+Added Pin To Net: NetName=MUX_LED2 Pin=R7-2
+Added Net: Name=MUX_LED2
+Added Pin To Net: NetName=MUX_LED3 Pin=IC1-1
+Added Pin To Net: NetName=MUX_LED3 Pin=R8-2
+Added Net: Name=MUX_LED3
+Added Pin To Net: NetName=MUX_LED4 Pin=IC1-13
+Added Pin To Net: NetName=MUX_LED4 Pin=R9-2
+Added Net: Name=MUX_LED4
+Added Pin To Net: NetName=MUX_LED5 Pin=IC1-14
+Added Pin To Net: NetName=MUX_LED5 Pin=R10-2
+Added Net: Name=MUX_LED5
+Added Pin To Net: NetName=MUX_LED6 Pin=IC1-15
+Added Pin To Net: NetName=MUX_LED6 Pin=R11-2
+Added Net: Name=MUX_LED6
+Added Room: Name=EE318
