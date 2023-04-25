@@ -12,8 +12,8 @@
 #define SERVO_MOTOR_PORT GPIO_PORT_P1
 #define SERVO_MOTOR_PIN GPIO_PIN7
 
-unsigned int current_angle = 90;
-unsigned int angle_step_size = 5;
+
+unsigned int angle_step_size = 1;
 
 const int servo_lower_limit_count = 18; // 0 degrees
 const int servo_upper_limit_count = 74; // 180 degrees
@@ -67,10 +67,10 @@ enum CONFIGURATION config = FIXED;
 
 // LDR VARIABLES
 #define LDR_L_PORT GPIO_PORT_P1
-#define LDR_L_PIN GPIO_PIN4
+#define LDR_L_PIN GPIO_PIN3
 
 #define LDR_R_PORT GPIO_PORT_P1
-#define LDR_R_PIN GPIO_PIN5
+#define LDR_R_PIN GPIO_PIN4
 
 int LDR_INDICATOR_TOLERANCES[] = {10,20,30};
 

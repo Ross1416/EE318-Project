@@ -16,6 +16,8 @@ int ldr_l_offset = 0;
 volatile unsigned int potValue=0;
 unsigned int potAngle=0;
 
+// SERVO VARIABLES
+unsigned int current_angle = 90;
 
 // ADC INTERRUPT
 #pragma vector=ADC_VECTOR
@@ -167,6 +169,22 @@ void update_efficiency_indicator(int diff)
 }
 
 
+void update_tracking (int diff)
+{
+    int tolerance = 100;
+    if (abs(diff)>tolerance)
+    {
+        if (diff>0 && current_angle<180)
+            current_angle += angle_step_size;
+        else if (diff <0 && current_angle>0)
+            current_angle -= angle_step_size;
+    }
+
+
+
+}
+
+
 // SETUP ADC FOR MEASURING POTENTIOMETER
 void init_ADC(void)
 {
@@ -238,7 +256,7 @@ void update_servo()
 int main(void)
 
 {
-    config = FIXED;
+    config = TRACKING;
     switched_mode = true;
     WDTCTL = WDTPW | WDTHOLD;               // Stop watchdog timer
 //    CSCTL1 |= DCORSEL_5; // made no difference
@@ -331,7 +349,7 @@ int main(void)
     //
     //              update_efficiency_indicator(ldr_diff);
 
-//              }
+              }
     //        ADCCTL0 |= ADCSC; // start conversion
 
 
@@ -339,10 +357,12 @@ int main(void)
           }
 
         potValue=adc[6];
-        ldr_r_val=adc[5];
+        ldr_r_val=adc[3];
         ldr_l_val=adc[4];
         ldr_diff = ldr_r_val-ldr_l_val;
         update_efficiency_indicator(ldr_diff);
+        update_tracking(ldr_diff);
+        update_servo();
 
     }
 }
