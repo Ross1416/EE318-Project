@@ -44,10 +44,10 @@ __interrupt void P1_ISR(void)
 {
   switch(P1IV)
   {
-  case FIXED_BTN_INT:
-    config=FIXED;
+  case TRACKING_BTN_INT:
+    config=TRACKING;
     switched_mode = true;
-    GPIO_clearInterrupt(FIXED_BTN_PORT, FIXED_LED_PIN);
+    GPIO_clearInterrupt(TRACKING_BTN_PORT, TRACKING_BTN_PIN);
     break;
   }
 }
@@ -58,15 +58,15 @@ __interrupt void P2_ISR(void)
 {
   switch(P2IV)
   {
+  case FIXED_BTN_INT:
+    config=FIXED;
+    switched_mode = true;
+    GPIO_clearInterrupt(FIXED_BTN_PORT, FIXED_BTN_PIN);
+    break;
   case MANUAL_BTN_INT:
     config=MANUAL;
     switched_mode = true;
     GPIO_clearInterrupt(MANUAL_BTN_PORT, MANUAL_BTN_PIN);
-    break;
-  case TRACKING_BTN_INT:
-    config=TRACKING;
-    switched_mode = true;
-    GPIO_clearInterrupt(TRACKING_BTN_PORT, TRACKING_BTN_PIN);
     break;
   default:
     break;
@@ -88,22 +88,22 @@ void init_btns(void)
 {
     // FIXED MODE SELECT BTN
     GPIO_selectInterruptEdge(FIXED_BTN_PORT, FIXED_BTN_PIN, GPIO_LOW_TO_HIGH_TRANSITION);
-    GPIO_setAsInputPin(FIXED_BTN_PORT, FIXED_BTN_PIN);                              // FOR VEROBOARD VERSION
-//    GPIO_setAsInputPinWithPullDownResistor(FIXED_BTN_PORT, FIXED_BTN_PIN);        // FOR PCB VERSION
+//    GPIO_setAsInputPin(FIXED_BTN_PORT, FIXED_BTN_PIN);                              // FOR VEROBOARD VERSION
+    GPIO_setAsInputPinWithPullDownResistor(FIXED_BTN_PORT, FIXED_BTN_PIN);        // FOR PCB VERSION
     GPIO_clearInterrupt(FIXED_BTN_PORT, FIXED_BTN_PIN);
     GPIO_enableInterrupt(FIXED_BTN_PORT, FIXED_BTN_PIN);
 
     // MANUAL MODE SELECT BTN
     GPIO_selectInterruptEdge(MANUAL_BTN_PORT, MANUAL_BTN_PIN, GPIO_LOW_TO_HIGH_TRANSITION);
-    GPIO_setAsInputPin(MANUAL_BTN_PORT, MANUAL_BTN_PIN);                            // FOR VEROBOARD VERSION
-//    GPIO_setAsInputPinWithPullDownResistor(MANUAL_BTN_PORT, MANUAL_BTN_PIN);      // FOR PCB VERSION
+//    GPIO_setAsInputPin(MANUAL_BTN_PORT, MANUAL_BTN_PIN);                            // FOR VEROBOARD VERSION
+    GPIO_setAsInputPinWithPullDownResistor(MANUAL_BTN_PORT, MANUAL_BTN_PIN);      // FOR PCB VERSION
     GPIO_clearInterrupt(MANUAL_BTN_PORT, MANUAL_BTN_PIN);
     GPIO_enableInterrupt(MANUAL_BTN_PORT, MANUAL_BTN_PIN);
 
     // TRACKING MODE SELECT BTN
     GPIO_selectInterruptEdge(TRACKING_BTN_PORT, TRACKING_BTN_PIN, GPIO_LOW_TO_HIGH_TRANSITION);
-    GPIO_setAsInputPin(TRACKING_BTN_PORT, TRACKING_BTN_PIN);                        // FOR VEROBOARD VERSION
-//    GPIO_setAsInputPinWithPullDownResistor(TRACKING_BTN_PORT, TRACKING_BTN_PIN);  // FOR PCB VERSION
+//    GPIO_setAsInputPin(TRACKING_BTN_PORT, TRACKING_BTN_PIN);                        // FOR VEROBOARD VERSION
+    GPIO_setAsInputPinWithPullDownResistor(TRACKING_BTN_PORT, TRACKING_BTN_PIN);  // FOR PCB VERSION
     GPIO_clearInterrupt(TRACKING_BTN_PORT, TRACKING_BTN_PIN);
     GPIO_enableInterrupt(TRACKING_BTN_PORT, TRACKING_BTN_PIN);
 }
@@ -256,7 +256,7 @@ void update_servo()
 int main(void)
 
 {
-    config = TRACKING;
+    config = FIXED;
     switched_mode = true;
     WDTCTL = WDTPW | WDTHOLD;               // Stop watchdog timer
 //    CSCTL1 |= DCORSEL_5; // made no difference
@@ -323,8 +323,8 @@ int main(void)
                   //         | ADCSC;
 
                   potAngle = map(potValue,0,1023,0,180);
-                  current_angle=180-potAngle;
-
+//                  current_angle=180-potAngle;
+                  current_angle=potAngle;
                   update_servo();
               }
 
@@ -348,6 +348,7 @@ int main(void)
     //              ldr_diff = ldr_r_val-ldr_l_val;
     //
     //              update_efficiency_indicator(ldr_diff);
+                  update_tracking(ldr_diff);
 
               }
     //        ADCCTL0 |= ADCSC; // start conversion
@@ -361,7 +362,7 @@ int main(void)
         ldr_l_val=adc[4];
         ldr_diff = ldr_r_val-ldr_l_val;
         update_efficiency_indicator(ldr_diff);
-        update_tracking(ldr_diff);
+
         update_servo();
 
     }
