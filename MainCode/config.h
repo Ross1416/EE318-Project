@@ -21,6 +21,11 @@ const int servo_upper_limit_count = 74; // 180 degrees
 const unsigned int period = 640; // 50 Hz
 volatile unsigned int pulse_width=18; // initially 0 degrees
 
+
+// TRACKING VARIABLES
+#define tolerance 15
+
+
 //// POTENTIOMETER VALUES
 //#define POT_PORT GPIO_PORT_P1
 //#define POT_PIN GPIO_PIN6
@@ -72,17 +77,17 @@ enum CONFIGURATION config = FIXED;
 #define LDR_R_PORT GPIO_PORT_P1
 #define LDR_R_PIN GPIO_PIN4
 
-int LDR_INDICATOR_TOLERANCES[] = {10,20,30};
+int LDR_INDICATOR_TOLERANCES[] = {30,60,90};
 
 // MUX VARIABLES
-#define MUX_A_PORT GPIO_PORT_P8
-#define MUX_A_PIN GPIO_PIN3
+#define MUX_A_PORT GPIO_PORT_P5
+#define MUX_A_PIN GPIO_PIN1
 
 #define MUX_B_PORT GPIO_PORT_P8
 #define MUX_B_PIN GPIO_PIN2
 
-#define MUX_C_PORT GPIO_PORT_P5
-#define MUX_C_PIN GPIO_PIN1
+#define MUX_C_PORT GPIO_PORT_P8
+#define MUX_C_PIN GPIO_PIN3
 
 #define MUX_INH_PORT GPIO_PORT_P8
 #define MUX_INH_PIN GPIO_PIN0

@@ -139,31 +139,34 @@ void mux_select(bool MUXC, bool MUXB, bool MUXA) {
 
 void update_efficiency_indicator(int diff)
 {
-    if (diff>0){
-        if (diff<LDR_INDICATOR_TOLERANCES[0])
-            mux_select(false,true,true);
-        else
-            if (diff<LDR_INDICATOR_TOLERANCES[1])
-                mux_select(false,true,false);
-            else
-                if (diff<LDR_INDICATOR_TOLERANCES[2])
-                    mux_select(false,false,true);
-                else
-                    mux_select(false,false,false);
-
-    }
-    else{
-        if (abs(diff)<LDR_INDICATOR_TOLERANCES[0])
-            mux_select(false,true,true);
-        else
-            if (abs(diff)<LDR_INDICATOR_TOLERANCES[1])
+    if (abs(diff)>tolerance){
+        if (diff>0){
+            if (diff<LDR_INDICATOR_TOLERANCES[0])
                 mux_select(true,false,false);
             else
-                if (abs(diff)<LDR_INDICATOR_TOLERANCES[2])
-                    mux_select(true,false,true);
+                if (diff<LDR_INDICATOR_TOLERANCES[1])
+                    mux_select(false,false,false);
                 else
+                    if (diff<LDR_INDICATOR_TOLERANCES[2])
+                        mux_select(false,false,true);
+                    else
+                        mux_select(false,true,false);
+
+        }
+        else{
+            if (abs(diff)<LDR_INDICATOR_TOLERANCES[0])
+                mux_select(true,false,false);
+            else
+                if (abs(diff)<LDR_INDICATOR_TOLERANCES[1])
                     mux_select(true,true,false);
+                else
+                    if (abs(diff)<LDR_INDICATOR_TOLERANCES[2])
+                        mux_select(true,true,true);
+                    else
+                        mux_select(true,false,true);
+        }
     }
+
 
 
 }
@@ -171,7 +174,6 @@ void update_efficiency_indicator(int diff)
 
 void update_tracking (int diff)
 {
-    int tolerance = 100;
     if (abs(diff)>tolerance)
     {
         if (diff>0 && current_angle<180)
@@ -279,6 +281,7 @@ int main(void)
 
 
 
+
     while(1)
     {
 
@@ -358,8 +361,8 @@ int main(void)
           }
 
         potValue=adc[6];
-        ldr_r_val=adc[3];
-        ldr_l_val=adc[4];
+        ldr_r_val=adc[4];
+        ldr_l_val=adc[3];
         ldr_diff = ldr_r_val-ldr_l_val;
         update_efficiency_indicator(ldr_diff);
 
