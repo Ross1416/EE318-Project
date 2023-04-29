@@ -174,9 +174,6 @@ void update_efficiency_indicator(int diff)
                         mux_select(true,false,true);
         }
     }
-
-
-
 }
 
 
@@ -264,17 +261,40 @@ void update_tracking(int diff)
             {
                 tracking_delay_complete=false;
                 current_angle += angle_step_size;
-                timer_delay_start(TRACKING_DELAY);
+
+                if (abs(diff)<LDR_INDICATOR_TOLERANCES[0])
+                    timer_delay_start(TRACKING_DELAYS[0]);
+                else
+                    if (abs(diff)<LDR_INDICATOR_TOLERANCES[1])
+                        timer_delay_start(TRACKING_DELAYS[1]);
+                    else
+                        if (abs(diff)<LDR_INDICATOR_TOLERANCES[2])
+                            timer_delay_start(TRACKING_DELAYS[2]);
+                        else
+                            timer_delay_start(TRACKING_DELAYS[3]);
+
             }
             else if (diff >0 && current_angle>0)
             {
                 tracking_delay_complete=false;
                 current_angle -= angle_step_size;
-                timer_delay_start(TRACKING_DELAY);
+
+                if (abs(diff)<LDR_INDICATOR_TOLERANCES[0])
+                    timer_delay_start(TRACKING_DELAYS[0]);
+                else
+                    if (abs(diff)<LDR_INDICATOR_TOLERANCES[1])
+                        timer_delay_start(TRACKING_DELAYS[1]);
+                    else
+                        if (abs(diff)<LDR_INDICATOR_TOLERANCES[2])
+                            timer_delay_start(TRACKING_DELAYS[2]);
+                        else
+                            timer_delay_start(TRACKING_DELAYS[3]);
             }
         }
     }
 }
+
+
 
 
 // UPDATE SERVO ANGLE

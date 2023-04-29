@@ -25,7 +25,8 @@ volatile unsigned int pulse_width=18; // initially 0 degrees
 // TRACKING VARIABLES
 #define tolerance 15
 #define TRACKING_DELAY 250
-
+const int TRACKING_TOLERANCES[] = {30,60,90};
+const int TRACKING_DELAYS[] = {500,250,100,50};
 //// POTENTIOMETER VALUES
 //#define POT_PORT GPIO_PORT_P1
 //#define POT_PIN GPIO_PIN6
@@ -77,7 +78,7 @@ enum CONFIGURATION config = FIXED;
 #define LDR_R_PORT GPIO_PORT_P1
 #define LDR_R_PIN GPIO_PIN4
 
-int LDR_INDICATOR_TOLERANCES[] = {30,60,90};
+const int LDR_INDICATOR_TOLERANCES[] = {30,60,90};
 
 // MUX VARIABLES
 #define MUX_A_PORT GPIO_PORT_P5
