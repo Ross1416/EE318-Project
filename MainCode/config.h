@@ -24,7 +24,7 @@ volatile unsigned int pulse_width=18; // initially 0 degrees
 
 // TRACKING VARIABLES
 #define tolerance 15
-
+#define TRACKING_DELAY 250
 
 //// POTENTIOMETER VALUES
 //#define POT_PORT GPIO_PORT_P1

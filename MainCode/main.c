@@ -19,6 +19,9 @@ unsigned int potAngle=0;
 // SERVO VARIABLES
 unsigned int current_angle = 90;
 
+// TRACKING VARIABLES
+volatile bool tracking_delay_complete=true;
+
 // ADC INTERRUPT
 #pragma vector=ADC_VECTOR
 __interrupt void ADC_ISR(void)
@@ -74,7 +77,12 @@ __interrupt void P2_ISR(void)
 }
 
 
-
+#pragma vector=TIMER1_A0_VECTOR
+__interrupt void Timer1_A0_ISR (void)
+{
+    TA1CTL &= MC_0; //stop timer
+    tracking_delay_complete=true;
+}
 
 //https://www.arduino.cc/reference/en/language/functions/math/map/
 long map(long x, long in_min, long in_max, long out_min, long out_max) {
@@ -172,19 +180,7 @@ void update_efficiency_indicator(int diff)
 }
 
 
-void update_tracking (int diff)
-{
-    if (abs(diff)>tolerance)
-    {
-        if (diff>0 && current_angle<180)
-            current_angle += angle_step_size;
-        else if (diff <0 && current_angle>0)
-            current_angle -= angle_step_size;
-    }
 
-
-
-}
 
 
 // SETUP ADC FOR MEASURING POTENTIOMETER
@@ -239,9 +235,45 @@ void init_servo_timer(void)
 //  TA0CCTL0 |=
 //
   TA0CTL |= TASSEL_1; // ACLK clock
-  TA0CTL |= ID_0; // divide by 0
+  TA0CTL |= ID_0; // divide by 1
   TA0CTL |= MC_1; // up mode - 01b = Up mode: Timer counts up to TAxCCR0
   TA0CCTL1 |= OUTMOD_7; // Reset-set mode
+}
+
+
+void timer_delay_start(volatile unsigned int delay)
+{
+    TA1CTL = TACLR; // clear timer
+    TA1R=0; // set initial value to 0
+
+    TA1CCR0 = delay;
+
+    TA1CTL |= TASSEL_1; //ACLK source
+    TA1CTL |= ID_0; //divide by 1
+    TA1CTL |= MC_1; // up mode
+    TA1CCTL0 |= CCIE; // enable interrupt
+}
+
+void update_tracking(int diff)
+{
+    if (tracking_delay_complete==true)
+    {
+        if (abs(diff)>tolerance)
+        {
+            if (diff<0 && current_angle<180)
+            {
+                tracking_delay_complete=false;
+                current_angle += angle_step_size;
+                timer_delay_start(TRACKING_DELAY);
+            }
+            else if (diff >0 && current_angle>0)
+            {
+                tracking_delay_complete=false;
+                current_angle -= angle_step_size;
+                timer_delay_start(TRACKING_DELAY);
+            }
+        }
+    }
 }
 
 
@@ -272,7 +304,6 @@ int main(void)
     init_leds();
 
     init_servo_timer();
-//    update_servo();
     init_ADC();
     init_MUX();
 
