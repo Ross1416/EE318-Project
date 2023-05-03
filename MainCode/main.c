@@ -1,6 +1,7 @@
 #include <config.h>
 #include <msp430.h>
 #include <driverlib.h>
+#include <hal_LCD.h>
 
 // INIT VARIABLES
 bool switched_mode;
@@ -21,6 +22,12 @@ unsigned int current_angle = 90;
 
 // TRACKING VARIABLES
 volatile bool tracking_delay_complete=true;
+
+// POWER MEASUREMENT
+unsigned int power_val=0;
+unsigned int power=0; // power in micro Watts
+unsigned int voltage=0; //voltage
+char buffer[18];
 
 // ADC INTERRUPT
 #pragma vector=ADC_VECTOR
@@ -295,7 +302,27 @@ void update_tracking(int diff)
 }
 
 
+void displayText(char *msg)
+{
+    int length = strlen(msg);
+    char buffer[6] = "      ";
 
+    int j;
+
+    for (j=0; j<length; j++)
+    {
+        buffer[j] = msg[j];
+    }
+
+    showChar(buffer[0], pos1);
+    showChar(buffer[1], pos2);
+    showChar(buffer[2], pos3);
+    showChar(buffer[3], pos4);
+    showChar(buffer[4], pos5);
+    showChar(buffer[5], pos6);
+
+
+}
 
 // UPDATE SERVO ANGLE
 void update_servo()
@@ -304,6 +331,25 @@ void update_servo()
   TA0CCR1 = pulse_width; // for pin 1.7
 //  TA0CCR2 = pulse_width; // for pin 1.6? - doesnt work for some reason
 }
+
+float calculateVoltage(int adcVal)
+{
+    float v=(adcVal*3.3)/1023;
+    // scale due to voltage divider
+    v=(v*(RESISTOR_1+RESISTOR_2))/RESISTOR_2;
+    return v;
+}
+
+float calculatePower(int adcVal)
+{
+    float v = calculateVoltage(adcVal);
+    float pwr = (v*v)/RESISTOR_2;
+    //scale power
+    pwr=pwr*1000000;
+    return pwr;
+
+}
+
 
 
 
@@ -326,12 +372,10 @@ int main(void)
     init_servo_timer();
     init_ADC();
     init_MUX();
+    Init_LCD();
 
     ADCCTL0 |= ADCENC | ADCSC;// | ADCMSC; // enable conversion and start conversion
 //    ADCCTL0 |= ADCENC | ADCSC | ADCMSC;
-
-
-
 
     while(1)
     {
@@ -414,10 +458,14 @@ int main(void)
         potValue=adc[6];
         ldr_r_val=adc[4];
         ldr_l_val=adc[3];
+        power_val=adc[5];
         ldr_diff = ldr_r_val-ldr_l_val;
         update_efficiency_indicator(ldr_diff);
-
         update_servo();
+
+//        voltage = calculateVoltage(power_val);
+//        sprintf(buffer, "P %d",voltage);
+//        displayText(buffer);
 
     }
 }
