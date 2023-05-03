@@ -23,7 +23,7 @@ volatile unsigned int pulse_width=18; // initially 0 degrees
 
 
 // TRACKING VARIABLES
-#define tolerance 15
+#define tolerance 25
 #define TRACKING_DELAY 250
 const int TRACKING_TOLERANCES[] = {30,60,90};
 const int TRACKING_DELAYS[] = {500,250,100,50};
@@ -93,6 +93,8 @@ const int LDR_INDICATOR_TOLERANCES[] = {30,60,90};
 #define MUX_INH_PORT GPIO_PORT_P8
 #define MUX_INH_PIN GPIO_PIN0
 
-
+// POWER MEASUREMENT
+#define RESISTOR_1 18000
+#define RESISTOR_2 18000
 
 #endif /* CONFIG_H_ */
